@@ -137,3 +137,70 @@ El Shell es una interfaz de usuario para interactuar con el kernel, pero no real
 
 Sí, es posible asignar un shell diferente para cada usuario. Esta configuración generalmente se encuentra en el archivo `/etc/passwd`. Solo el administrador o root pueden cambiar el shell de un usuario.
 
+## 6. Sistema de Archivos (File System)
+
+### a) ¿Qué es el Sistema de Archivos?
+
+El **Sistema de Archivos (File System)** es la estructura que utiliza un sistema operativo para controlar cómo se almacenan y recuperan los archivos en un disco.
+
+### b) Sistemas de Archivos soportados
+
+GNU/Linux soporta una amplia variedad de sistemas de archivos, incluidos:
+
+- **Ext3/Ext4**: Tradicionalmente utilizados en Linux.
+- **XFS**: Adecuado para grandes cantidades de datos.
+- **Btrfs**: Centrado en la replicación y la escalabilidad.
+- **NTFS**: Utilizado en sistemas Windows.
+- **FAT32**: Utilizado para compatibilidad y en dispositivos flash.
+
+### c) Visualizar FAT y NTFS
+
+Sí, es posible visualizar y montar particiones **FAT** y **NTFS** en GNU/Linux.
+
+### d) Estructura básica y FHS
+
+La estructura básica del sistema de archivos en GNU/Linux se adhiere generalmente al estándar **FHS (Filesystem Hierarchy Standard)**. Los directorios más importantes y su contenido son:
+
+- **/bin**: Binarios esenciales.
+- **/etc**: Archivos de configuración.
+- **/home**: Espacio para datos de usuarios.
+- **/usr**: Aplicaciones y archivos compartidos.
+- **/var**: Archivos de datos variables como logs.
+  
+## 7. Particiones
+
+### a) Definición, Tipos, Ventajas y Desventajas
+
+Una **partición** es una subdivisión de un disco duro. Los tipos comunes incluyen particiones **primarias**, **extendidas** y **lógicas**.
+
+- **Ventajas**: Permite una mejor organización, múltiples sistemas operativos, y diferentes sistemas de archivos.
+- **Desventajas**: Puede complicar la gestión del espacio del disco.
+
+### b) Identificación en GNU/Linux
+
+- **IDE**: Suelen ser `/dev/hda1`, `/dev/hda2`, etc.
+- **SCSI/SATA**: Suelen ser `/dev/sda1`, `/dev/sda2`, etc.
+
+### c) Particiones mínimas
+
+Como mínimo, para una instalación básica de GNU/Linux generalmente se necesitan:
+
+- Una partición de tipo **root** (`/`), generalmente como **ext4**, montada en `/`.
+- Una partición de tipo **swap**, utilizada como memoria virtual.
+
+### d) Ejemplos de particionamiento
+
+- **Servidor Web**: Una partición para `/`, otra para `/var/www`.
+- **Estación de Trabajo**: Particiones separadas para `/`, `/home`, `/usr`, etc.
+
+### e) Software para particionar
+
+Algunas opciones incluyen:
+
+- **GParted**: Interfaz gráfica, fácil de usar.
+- **fdisk**: Basado en consola, más control pero más complejo.
+- **parted**: Similar a fdisk pero con más características.
+- **cfdisk**: Otra opción basada en consola, más amigable que fdisk.
+
+Cada una tiene sus ventajas y desventajas, que van desde la facilidad de uso hasta la cantidad de control que ofrecen al usuario.
+
