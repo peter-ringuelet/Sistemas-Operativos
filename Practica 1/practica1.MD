@@ -1,77 +1,76 @@
-1. Caracteristicas de GNU/Linux:
+# Práctica de GNU/Linux
 
-   a) Caracteristicas mas relevantes de GNU/Linux:
+## 1. Características de GNU/Linux
 
-      - Codigo Abierto: Permite a los usuarios y desarrolladores acceder y modificar el codigo fuente.
-      - Seguridad: Disenado con un fuerte enfoque en la seguridad, incluyendo diversas capas de permisos y politicas de seguridad como SELinux.
-      - Estabilidad y Fiabilidad: Conocido por su robustez, raramente experimenta fallos o requiere reinicios.
-      - Portabilidad: Puede ejecutarse en una variedad de hardware, desde servidores hasta dispositivos moviles.
-      - Multitarea y Multiusuario: Permite la ejecucion de multiples tareas y el acceso de multiples usuarios simultaneamente.
-      - Escalabilidad: Capaz de manejar sistemas desde servidores de alta gama hasta hardware mas modesto.
-      - Comunidad Activa: Extensa comunidad de desarrolladores y usuarios que contribuyen con documentacion, codigo y soporte.
-      - Sistema de Archivos: Soporta una gran cantidad de sistemas de archivos, incluyendo ext4, XFS, etc.
+### a) Características más relevantes de GNU/Linux
 
-   b) Comparacion con otros Sistemas Operativos:
+- **Código Abierto**: Permite a los usuarios y desarrolladores acceder y modificar el código fuente.
+- **Seguridad**: Diseñado con un fuerte enfoque en la seguridad.
+- **Estabilidad y Fiabilidad**: Raramente experimenta fallos o requiere reinicios.
+- **Portabilidad**: Compatible con una amplia gama de hardware.
+- **Multitarea y Multiusuario**: Soporte para múltiples tareas y usuarios.
+- **Escalabilidad**: Capaz de manejar diferentes tipos de hardware.
+- **Comunidad Activa**: Fuerte soporte de la comunidad.
+- **Sistema de Archivos**: Soporta múltiples sistemas de archivos.
 
-      - Windows: Propietario, menos seguro, mas susceptible a malware, menos estable en servidores.
-      - macOS: Propietario, basado en Unix, mas cerrado en terminos de personalizacion, disenado para un conjunto especifico de hardware.
-      - FreeBSD: Similar en muchos aspectos, pero con un enfoque diferente en la licencia y en el diseno del nucleo.
+### b) Comparación con otros Sistemas Operativos
 
-   c) Que es GNU?
+- **Windows**: Propietario, menos seguro, más susceptible a malware.
+- **macOS**: Propietario, basado en Unix, limitada personalización.
+- **FreeBSD**: Código abierto pero con diferencias en licencias y diseño del núcleo.
 
-      GNU es un proyecto iniciado por Richard Stallman para desarrollar un sistema operativo completamente libre y de codigo abierto. La sigla "GNU" significa "GNU's Not Unix".
+### c) ¿Qué es GNU?
 
-   d) Historia del proyecto GNU:
+GNU significa "GNU's Not Unix" y es un proyecto para crear un sistema operativo libre.
 
-      - 1983: Richard Stallman anuncia el proyecto GNU.
-      - 1985: Se crea la Free Software Foundation (FSF).
-      - 1991: Linus Torvalds libera el nucleo Linux, que se combina con las herramientas GNU para crear GNU/Linux.
+### d) Historia de GNU
 
-   e) Multitarea:
+- **1983**: Anuncio del proyecto GNU.
+- **1985**: Creación de la Free Software Foundation.
+- **1991**: Liberación del núcleo Linux, se combina con GNU.
 
-      La multitarea es la capacidad del sistema operativo para ejecutar multiples procesos de forma simultanea. GNU/Linux hace uso extensivo de la multitarea.
+### e) Multitarea
 
-   f) Que es POSIX?
+La multitarea es la capacidad de ejecutar múltiples tareas simultáneamente. GNU/Linux soporta multitarea.
 
-      POSIX (Portable Operating System Interface) es una familia de estandares definidos para mantener la compatibilidad entre sistemas operativos. GNU/Linux es en gran medida compatible con POSIX.
+### f) ¿Qué es POSIX?
 
-2. Distribuciones de GNU/Linux:
+POSIX es un estándar para asegurar la compatibilidad entre sistemas operativos. GNU/Linux es compatible con POSIX.
 
-   a) Que es una distribucion de GNU/Linux?
+## 2. Distribuciones de GNU/Linux
 
-      Una distribucion de GNU/Linux es una coleccion del nucleo Linux junto con un conjunto de software y herramientas, generalmente acompanado de un sistema de gestion de paquetes.
+### a) ¿Qué es una distribución de GNU/Linux?
 
-      - Ubuntu: Orientada al usuario, basada en Debian.
-      - Fedora: Innovadora, basada en los ultimos desarrollos.
-      - Debian: Estable, ideal para servidores.
-      - Arch Linux: Minimalista, el usuario debe configurar el sistema desde cero.
+Una distribución es el núcleo Linux más un conjunto de software. Ejemplos incluyen:
 
-   b) Diferencias:
+- **Ubuntu**: Fácil de usar, basado en Debian.
+- **Fedora**: Foco en las últimas tecnologías.
+- **Debian**: Estable, ideal para servidores.
+- **Arch Linux**: Para usuarios avanzados.
 
-      - Gestion de paquetes
-      - Enfoque (usuario final, estabilidad, actualizaciones)
-      - Comunidad y soporte
-      - Herramientas preinstaladas
+### b) Diferencias entre distribuciones
 
-   c) Que es Debian?
+- Gestión de paquetes.
+- Enfoque (usuario final, estabilidad, actualizaciones).
+- Comunidad y soporte.
 
-      Debian es una de las distribuciones de GNU/Linux mas antiguas y es conocida por su enfoque en la estabilidad y la seguridad. Su objetivo es proporcionar un sistema operativo completamente libre.
+### c) ¿Qué es Debian?
 
-3. Estructura de GNU/Linux:
+Debian es una distribución antigua y estable, con un enfoque en la libertad y la estabilidad del software.
 
-   a) 3 componentes fundamentales:
+## 3. Estructura de GNU/Linux
 
-      1. Kernel (Nucleo): Gestiona recursos del hardware y provee servicios basicos.
-      2. Shell: Interfaz de usuario para interactuar con el kernel.
-      3. Utilidades del Sistema: Herramientas y aplicaciones para realizar tareas especificas.
+### a) Componentes fundamentales
 
-   b) Estructura basica:
+1. **Kernel (Núcleo)**: Gestiona recursos.
+2. **Shell**: Interfaz de usuario.
+3. **Utilidades del Sistema**: Herramientas adicionales.
 
-      - /bin, /sbin: Binarios y sistemas binarios esenciales.
-      - /etc: Archivos de configuracion del sistema.
-      - /home: Directorios personales de los usuarios.
-      - /usr: Programas y bibliotecas compartidas.
-      - /var: Archivos variables como logs y bases de datos.
-      - /dev: Archivos de dispositivos.
+### b) Estructura básica del Sistema Operativo
 
-Estos son algunos de los directorios mas importantes en un sistema GNU/Linux que forman su estructura basica.
+- **/bin, /sbin**: Binarios esenciales.
+- **/etc**: Archivos de configuración.
+- **/home**: Directorios de usuario.
+- **/usr**: Programas y bibliotecas.
+- **/var**: Archivos variables como registros.
+- **/dev**: Archivos de dispositivos.
