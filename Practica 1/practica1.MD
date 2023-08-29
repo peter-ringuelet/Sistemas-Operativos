@@ -91,7 +91,7 @@ El **Kernel** o núcleo es la parte central de un sistema operativo que se encar
 
 ### c) Versionado del Kernel
 
-Mi conocimiento está limitado hasta septiembre de 2021, hasta esa fecha la versión más reciente del kernel Linux era la 5.14. El esquema de versionado cambió varias veces. Antes de la versión 2.4, el esquema era bastante simple y seguía el formato `major.minor.patch`. A partir de la versión 2.6, se adoptó un sistema más flexible que permitía cambios más rápidos y características experimentales.
+La versión más reciente del kernel Linux es la 5.19. El esquema de versionado cambió varias veces. Antes de la versión 2.4, el esquema era bastante simple y seguía el formato `major.minor.patch`. A partir de la versión 2.6, se adoptó un sistema más flexible que permitía cambios más rápidos y características experimentales.
 
 ### d) ¿Múltiples Kernels?
 
