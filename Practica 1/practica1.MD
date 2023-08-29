@@ -204,3 +204,84 @@ Algunas opciones incluyen:
 
 Cada una tiene sus ventajas y desventajas, que van desde la facilidad de uso hasta la cantidad de control que ofrecen al usuario.
 
+## 8. Arranque (Bootstrap) de un Sistema Operativo
+
+### a) ¿Qué es el BIOS? ¿Qué tarea realiza?
+
+**BIOS (Basic Input/Output System)** es un firmware que inicializa el hardware durante el proceso de arranque. Su tarea principal es preparar el sistema para cargar el sistema operativo.
+
+### b) ¿Qué es UEFI? ¿Cuál es su función?
+
+**UEFI (Unified Extensible Firmware Interface)** es un estándar que reemplaza al BIOS. Su función es similar, pero ofrece más funciones y seguridad.
+
+### c) ¿Qué es el MBR? ¿Qué es el MBC?
+
+**MBR (Master Boot Record)** es un sector especial en el disco duro que contiene información sobre cómo están organizadas las particiones y dónde está el gestor de arranque. MBC no es un término estándar en este contexto; tal vez te refieres a otro término.
+
+### d) GPT y su formato
+
+**GPT (GUID Partition Table)** es un estándar que reemplaza al MBR. Ofrece una forma más flexible y robusta de gestionar particiones.
+
+### e) Gestor de Arranque
+
+Un **Gestor de Arranque** es un programa que carga el sistema operativo en la memoria. Algunos gestores conocidos son GRUB, LILO y Syslinux. Generalmente, se instalan en el MBR o el área de arranque de una partición.
+
+### f) Proceso de Bootstrap
+
+1. **Encendido de la máquina**: Inicio del hardware.
+2. **BIOS o UEFI**: Inicialización de hardware y búsqueda de dispositivos de arranque.
+3. **Carga del Gestor de Arranque**: Desde el MBR o GPT.
+4. **Carga del Kernel**: El gestor de arranque carga el kernel en la memoria.
+5. **Inicialización del SO**: El kernel carga el sistema operativo.
+
+### g) Arranque en GNU/Linux
+
+1. **GRUB o LILO**: Selecciona el kernel.
+2. **Carga del Kernel**: Inicio del kernel de Linux.
+3. **init o systemd**: El primer proceso que se ejecuta.
+4. **Procesos de Usuario**: Inicio de la interfaz de usuario.
+
+### h) Proceso de Parada en GNU/Linux
+
+1. **Envío de señal de apagado**.
+2. **Terminación de Procesos**.
+3. **Desmontaje de Filesystems**.
+4. **Apagado del hardware**.
+
+### i) ¿Es posible tener GNU/Linux y otro SO?
+
+Sí, es posible tener múltiples sistemas operativos en una máquina a través de un proceso conocido como **dual-booting**.
+
+## 9. Archivos
+
+### a) Identificación de archivos en GNU/Linux
+
+Los archivos en GNU/Linux no dependen de extensiones, pero por convención se usan para identificar el tipo.
+
+### b) Editores y Comandos
+
+- **vi**: Editor de texto en terminal. 
+- **mcedit**: Editor en un entorno más gráfico dentro del terminal.
+- **cat**: Muestra el contenido de un archivo.
+- **more**: Muestra el contenido de un archivo paginado.
+
+### c) Crear un archivo
+
+Para crear un archivo llamado `prueba.exe` con vi:
+
+```bash
+vi prueba.exe
+```
+
+Una vez dentro del editor, puedes insertar tu número de alumno y tu nombre. Para hacerlo:
+
+1. Presiona `i` para entrar en el modo de inserción.
+2. Escribe tu número de alumno y tu nombre.
+3. Presiona `Esc` para salir del modo de inserción.
+4. Escribe `:wq` y presiona `Enter` para guardar los cambios y salir del editor.
+
+### d) Comando file
+
+El comando `file` determina el tipo de archivo. Al probarlo en diferentes archivos, notarás que identifica el tipo incluso si no tiene una extensión.
+
+
