@@ -284,4 +284,198 @@ Una vez dentro del editor, puedes insertar tu número de alumno y tu nombre. Par
 
 El comando `file` determina el tipo de archivo. Al probarlo en diferentes archivos, notarás que identifica el tipo incluso si no tiene una extensión.
 
+## 10. Comandos para Acciones Específicas
+
+### a) Cree la carpeta ISO2017
+
+- **Comando**: `mkdir`
+- **Descripción**: Crea un nuevo directorio.
+- **Parámetros más importantes**: 
+  - `-p`: Crea directorios padres si no existen.
+- **Uso**: `mkdir ISO2017`
+
+### b) Acceda a la carpeta (cd)
+
+- **Comando**: `cd`
+- **Descripción**: Cambia el directorio actual.
+- **Uso**: `cd ISO2017`
+
+### c) Cree dos archivos con los nombres iso2017-1 e iso2017-2 (touch)
+
+- **Comando**: `touch`
+- **Descripción**: Crea archivos vacíos.
+- **Uso**: `touch iso2017-1 iso2017-2`
+
+### d) Liste el contenido del directorio actual (ls)
+
+- **Comando**: `ls`
+- **Descripción**: Lista el contenido del directorio.
+- **Parámetros más importantes**: 
+  - `-l`: Listado detallado.
+  - `-a`: Incluir archivos ocultos.
+- **Uso**: `ls`
+
+### e) Visualizar la ruta donde estoy situado (pwd)
+
+- **Comando**: `pwd`
+- **Descripción**: Muestra la ruta del directorio actual.
+- **Uso**: `pwd`
+
+### f) Busque todos los archivos en los que su nombre contiene la cadena "iso*" (find)
+
+- **Comando**: `find`
+- **Descripción**: Busca archivos y directorios.
+- **Parámetros más importantes**: 
+  - `-name`: Buscar por nombre.
+- **Uso**: `find . -name "iso*"`
+
+### g) Informar la cantidad de espacio libre en disco (df)
+
+- **Comando**: `df`
+- **Descripción**: Muestra el uso del disco.
+- **Parámetros más importantes**: 
+  - `-h`: Leer de forma más fácil (human-readable).
+- **Uso**: `df -h`
+
+### h) Verifique los usuarios conectados al sistema (who)
+
+- **Comando**: `who`
+- **Descripción**: Muestra los usuarios conectados al sistema.
+- **Uso**: `who`
+
+### i) Acceder al archivo iso2017-1 e ingresar Nombre y Apellido
+
+- **Comando**: `nano` o `vi`
+- **Descripción**: Editores de texto en la terminal.
+- **Uso**: `nano iso2017-1` o `vi iso2017-1`
+
+### j) Mostrar en pantalla las últimas líneas de un archivo (tail)
+
+- **Comando**: `tail`
+- **Descripción**: Muestra las últimas líneas de un archivo.
+- **Parámetros más importantes**: 
+  - `-n`: Número de líneas a mostrar.
+- **Uso**: `tail -n 10 archivo.txt`
+
+## 11. Investigación sobre comandos y sus parámetros más importantes
+
+### a) **shutdown**
+
+- **Descripción**: Utilizado para apagar o reiniciar el sistema operativo de forma segura.
+- **Parámetros más importantes**: 
+  - `-h`: Apagar el sistema.
+  - `-r`: Reiniciar el sistema.
+  - `now`: Apagar o reiniciar inmediatamente.
+
+### b) **reboot**
+
+- **Descripción**: Reinicia el sistema.
+- **Parámetros más importantes**: 
+  - `-f`: Forzar reinicio sin llamar a `shutdown`.
+  - `-n`: No sincronizar antes de reiniciar.
+
+### c) **halt**
+
+- **Descripción**: Detiene el sistema.
+- **Parámetros más importantes**: 
+  - `-p`: Apagar después de detener.
+
+### d) **locate**
+
+- **Descripción**: Busca la ubicación de archivos.
+- **Parámetros más importantes**: 
+  - `-i`: Ignorar mayúsculas y minúsculas.
+  - `-n`: Limitar número de resultados.
+
+### e) **uname**
+
+- **Descripción**: Muestra información del sistema.
+- **Parámetros más importantes**: 
+  - `-a`: Muestra toda la información.
+  - `-s`: Solo el nombre del kernel.
+
+### f) **gmesg** (Posiblemente quisiste decir `dmesg`)
+
+- **Descripción**: Muestra mensajes del kernel.
+- **Parámetros más importantes**: 
+  - `-w`: Seguir añadiendo mensajes.
+  - `-C`: Limpiar el buffer de mensajes.
+
+### g) **lspci**
+
+- **Descripción**: Lista todos los dispositivos PCI.
+- **Parámetros más importantes**: 
+  - `-v`: Modo detallado.
+
+### h) **at**
+
+- **Descripción**: Programa tareas para ser ejecutadas en un momento específico.
+- **Parámetros más importantes**: 
+  - `-l`: Lista las tareas programadas.
+  - `-d`: Eliminar tarea.
+
+### i) **netstat**
+
+- **Descripción**: Muestra estadísticas de la red.
+- **Parámetros más importantes**: 
+  - `-a`: Muestra todos los puertos y conexiones.
+  - `-n`: Muestra direcciones en forma numérica.
+
+### j) **mount**
+
+- **Descripción**: Monta sistemas de archivos.
+- **Parámetros más importantes**: 
+  - `-o`: Opciones de montaje.
+  - `-t`: Tipo de sistema de archivos.
+
+### k) **umount**
+
+- **Descripción**: Desmonta sistemas de archivos.
+- **Parámetros más importantes**: 
+  - `-f`: Forzar desmontaje.
+
+### l) **head**
+
+- **Descripción**: Muestra las primeras líneas de un archivo.
+- **Parámetros más importantes**: 
+  - `-n`: Número de líneas a mostrar.
+
+### m) **losetup**
+
+- **Descripción**: Configura dispositivos de bucle (loop).
+- **Parámetros más importantes**: 
+  - `-a`: Mostrar todos los dispositivos de bucle.
+
+### n) **write**
+
+- **Descripción**: Envía un mensaje a otro usuario.
+- **Parámetros más importantes**: 
+  - `usuario`: El usuario al que se envía el mensaje.
+
+### ñ) **mkfs**
+
+- **Descripción**: Crea un sistema de archivos.
+- **Parámetros más importantes**: 
+  - `-t`: Tipo de sistema de archivos.
+
+### o) **fdisk**
+
+- **Descripción**: Manipula la tabla de particiones.
+- **Parámetros más importantes**: 
+  - `-l`: Lista las particiones.
+  - `-d`: Elimina una partición.
+
+## 12. Ubicación de los comandos
+
+### a) **Directorios de los Comandos**
+
+Los comandos usualmente se localizan en uno de los siguientes directorios:
+
+- `/bin`
+- `/sbin`
+- `/usr/bin`
+- `/usr/sbin`
+
+Para encontrar la ubicación exacta de un comando específico, puedes usar los comandos `which` o `type`.
+
 
