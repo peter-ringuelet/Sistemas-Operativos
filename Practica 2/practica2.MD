@@ -166,3 +166,113 @@ El comando `userdel` con la opción `-r` eliminará tanto el usuario como su dir
 
 - **passwd**: Permite cambiar la contraseña del usuario. Si eres el superusuario, puedes cambiar la contraseña de cualquier usuario en el sistema.
 
+## 4. FileSystem:
+
+### (a) Permisos en archivos
+
+En un sistema GNU/Linux, los permisos sobre archivos y directorios son definidos por tres tipos: permisos para el propietario del archivo (user), permisos para el grupo al que pertenece el archivo y permisos para todos los demás usuarios (others). Estos permisos determinan si un archivo puede ser leído, escrito o ejecutado.
+
+### (b) Comandos relacionados con permisos:
+
+- **chmod**: Cambia los permisos de un archivo o directorio.
+- **chown**: Cambia el propietario de un archivo o directorio.
+- **chgrp**: Cambia el grupo de un archivo o directorio.
+
+### (c) Notación octal en chmod:
+
+La notación octal es una forma de representar permisos utilizando números. Cada número representa un conjunto de permisos:
+
+- 4: permiso de lectura (r)
+- 2: permiso de escritura (w)
+- 1: permiso de ejecución (x)
+
+Por ejemplo, el permiso 755 en notación octal significa que el propietario tiene permisos de lectura, escritura y ejecución (7), mientras que el grupo y otros usuarios tienen permisos de lectura y ejecución (5).
+
+### (d) Acceso a archivos sin permisos:
+
+El usuario `root` tiene la capacidad de acceder a cualquier archivo, independientemente de los permisos. Así que sí, hay una posibilidad.
+
+### (e) Full path name vs Relative path name:
+
+- **Full path name**: Es la dirección completa de un archivo o directorio desde el directorio raíz. Ejemplo: `/home/usuario/documentos/archivo.txt`.
+- **Relative path name**: Es la dirección de un archivo o directorio basado en el directorio actual. Ejemplo: si estás en `/home/usuario`, puedes acceder al archivo anterior simplemente con `documentos/archivo.txt`.
+
+### (f) Navegación y acceso a directorios:
+
+- **pwd**: Muestra el directorio actual.
+- **cd ~** o simplemente **cd**: Lleva al usuario a su directorio personal sin necesidad de escribir todo el path. El símbolo `~` hace referencia al directorio home del usuario.
+  - Para acceder a otros directorios de forma similar, se pueden usar variables de entorno o aliases. Por ejemplo, `cd $DOCS` podría llevar al directorio de documentos si `DOCS` está configurado adecuadamente.
+
+### (g) Comandos relacionados con el FileSystem:
+
+- **cd**: Cambia el directorio actual.
+- **umount**: Desmonta sistemas de archivos.
+- **mkdir**: Crea un nuevo directorio.
+- **du**: Muestra el uso de disco de un archivo o directorio.
+- **rmdir**: Elimina un directorio vacío.
+- **df**: Muestra el uso de disco de sistemas de archivos.
+- **mount**: Monta sistemas de archivos.
+- **ln**: Crea enlaces entre archivos.
+- **ls**: Lista el contenido de un directorio.
+- **pwd**: Muestra el directorio de trabajo actual.
+- **cp**: Copia archivos o directorios.
+- **mv**: Mueve o renombra archivos o directorios.
+
+## 5. Procesos:
+
+### (a) Definición de proceso
+
+Un proceso es una instancia de un programa en ejecución. Es una unidad de actividad que el sistema operativo gestiona.
+- **PID**: Es la Identificación del Proceso. Es un número único que el sistema operativo asigna a cada proceso.
+- **PPID**: Es la Identificación del Proceso Padre. Indica el número de identificación del proceso que lanzó este proceso.
+- En GNU/Linux, todos los procesos tienen un PID y un PPID. El proceso inicial o proceso padre de todos es el init con PID 1.
+- Otros atributos de un proceso incluyen: el estado del proceso, prioridad, propietario, memoria usada, CPU usada, tiempo de inicio, etc.
+
+### (b) Comandos para visualizar procesos
+
+- `ps`
+- `top`
+- `htop` (si está instalado)
+
+### (c) Procesos en Background y Foreground
+
+- **Background**: Un proceso que se está ejecutando sin interactuar directamente con la consola.
+- **Foreground**: Un proceso que está ejecutando y toma el control de la consola.
+
+### (d) Ejecutar procesos en Background y Foreground
+
+- Ejecutar en Background: `comando &`
+- Traer un proceso a Foreground: `fg %jobnumber`
+- Enviar un proceso a Background: `bg %jobnumber`
+
+### (e) Pipe ( | )
+
+Permite tomar la salida de un comando y usarla como entrada para otro.
+Ejemplo: `ls -l | grep ".txt"`
+
+### (f) Redirección
+
+- `>` Redirige la salida estándar a un archivo. Si el archivo no existe, lo crea; si existe, lo sobrescribe.
+Ejemplo: `echo "Hello" > file.txt`
+  
+- `>>` Añade la salida estándar a un archivo.
+Ejemplo: `echo "World" >> file.txt`
+
+- `<` Toma la entrada estándar desde un archivo.
+Ejemplo: `sort < file.txt`
+
+### (g) Comando kill
+
+Permite enviar señales a procesos. Por lo general, se utiliza para terminar procesos.
+Ejemplo: `kill -9 1234` (Donde 1234 es el PID del proceso)
+
+### (h) Comandos relacionados con el manejo de procesos
+
+- **ps**: Muestra una instantánea de los procesos actuales.
+- **kill**: Envia señales a procesos. 
+- **pstree**: Muestra una estructura de árbol de los procesos.
+- **killall**: Mata procesos por nombre.
+- **top**: Muestra una actualización en tiempo real de los procesos.
+- **nice**: Cambia la prioridad de ejecución de un proceso.
+
+Todos estos comandos permiten gestionar y obtener información sobre los procesos, pero con diferentes niveles de detalle y funcionalidad.
