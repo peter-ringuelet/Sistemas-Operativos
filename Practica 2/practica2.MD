@@ -490,3 +490,102 @@ Por ejemplo, para buscar todos los archivos `.txt` en el sistema: "find / -name 
 find / -name '*.so' > .ejercicio_f"
 ```
 
+## 11. Análisis de comandos y acciones asociadas:
+
+### Comandos y sus acciones
+
+1. **mkdir iso**: Crea un directorio llamado "iso".
+2. **cd ./iso; ps > f0**: Cambia al directorio "iso" y guarda la lista de procesos en un archivo llamado "f0".
+3. **ls > f1**: Guarda el listado del directorio actual (iso) en un archivo llamado "f1".
+4. **cd /**: Cambia al directorio raíz del sistema.
+5. **echo $HOME**: Muestra el directorio home del usuario actual.
+6. **ls -l &> $HOME/iso/ls**: Guarda el listado detallado del directorio raíz en un archivo llamado "ls" dentro del directorio "iso".
+7. **cd $HOME; mkdir f2**: Regresa al directorio home del usuario y crea un directorio llamado "f2".
+8. **ls -l df2**: Muestra el listado detallado del archivo o directorio "df2". Si no existe, dará error.
+9. **chmod 341 f2**: Cambia los permisos del directorio "f2" dando al dueño lectura, al grupo ejecución y a otros escritura.
+10. **touch dir**: Crea un archivo vacío llamado "dir".
+11. **cd f2**: Cambia al directorio "f2".
+12. **cd ~/iso**: Cambia al directorio "iso" en el directorio home del usuario.
+13. **pwd >f3**: Guarda la ruta del directorio actual en un archivo llamado "f3".
+14. **ps | grep ' ps ' | wc -l >> ../f2/f3**: Cuenta cuántas veces 'ps' aparece en la lista de procesos y añade el número al archivo "f3" en el directorio "f2".
+15. **chmod 700 ../f2; cd ..**: Cambia los permisos del directorio "f2" a lectura, escritura y ejecución solo para el dueño, y regresa al directorio superior.
+16. **find . -name etc/passwd**: Busca el archivo "passwd" en el directorio "etc" dentro del directorio actual y sus subdirectorios.
+17. **find / -name etc/passwd**: Busca el archivo "passwd" en el directorio "etc" en todo el sistema.
+18. **mkdir ejercicio5**: Crea un directorio llamado "ejercicio5".
+
+### Preguntas
+
+(a) Instrucciones:
+1. Inicie dos sesiones con su usuario.
+2. En una sesión, ejecute los comandos anteriores.
+3. En la otra sesión, cree el archivo "ejercicio10_explicacion" y escriba una breve descripción de cada comando que ejecutó y sus resultados.
+
+(b) Completando comandos 19 y 20:
+19. **cp -r iso <ruta_directorio_ejercicio_9.a>**: Copia el directorio "iso" y su contenido al directorio creado en el ejercicio 9.a.
+20. **cp * <ruta_directorio_ejercicio_9.a>**: Copia todos los archivos y directorios (excepto "iso", que ya fue copiado) al directorio creado en el ejercicio 9.a.
+
+(c) Ejecute los comandos 19 y 20 y añada las descripciones y resultados al archivo "ejercicio10_explicacion".
+
+## 12. Creación de estructura y manipulación de archivos y directorios
+
+Primero, se crea la estructura de directorios, subdirectorios y archivos. Asumiendo que el nombre del usuario es `usuario` y partiendo del directorio `/home/usuario`:
+
+```bash
+mkdir dir1 dir1/dir11 dir1/dir12 dir2 dir2/dir21 dir2/dir22
+touch dir1/f1 dir1/f2 dir1/dir11/f3 dir1/dir11/f4 dir2/f5 dir2/f6 dir2/dir21/f3 dir2/dir21/f4
+```
+
+### Comandos para las acciones solicitadas:
+
+1. **Mover el archivo "f3" al directorio de trabajo `/home/usuario`**:
+   
+```bash
+mv dir1/dir11/f3 /home/usuario/
+```
+
+2. **Copiar el archivo "f4" en el directorio "dir11"**:
+   
+```bash
+cp dir1/dir11/f4 dir1/dir11/
+```
+
+3. **Copiar el archivo "f4" en el directorio "dir11" con el nombre "f7"**:
+   
+```bash
+cp dir1/dir11/f4 dir1/dir11/f7
+```
+
+4. **Crear el directorio "copia" dentro del directorio "usuario" y copiar el contenido de "dir1" en él**:
+   
+```bash
+mkdir /home/usuario/copia
+cp -r dir1/* /home/usuario/copia/
+```
+
+5. **Renombrar el archivo "f1" a "archivo" y ver sus permisos**:
+   
+```bash
+mv dir1/f1 dir1/archivo
+ls -l dir1/archivo
+```
+
+6. **Cambiar los permisos del archivo llamado "archivo"**:
+   
+```bash
+chmod 614 dir1/archivo
+```
+
+7. **Renombrar los archivos "f3" y "f4" a "f3.exe" y "f4.exe" respectivamente**:
+   
+```bash
+mv dir2/dir21/f3 dir2/dir21/f3.exe
+mv dir2/dir21/f4 dir2/dir21/f4.exe
+```
+
+8. **Cambiar permisos de los archivos "f3.exe" y "f4.exe"**:
+   
+```bash
+chmod 204 dir2/dir21/f3.exe dir2/dir21/f4.exe
+```
+
+Con estos comandos, se logran todas las acciones solicitadas.
