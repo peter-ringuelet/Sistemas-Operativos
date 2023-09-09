@@ -368,3 +368,125 @@ chown iso2021 /opt/isodata
 pwd >> /home/<su nombre de usuario>/donde
 ```
 Nota: El operador `>>` se usa para agregar al final de un archivo sin sobrescribir su contenido.
+
+## 9. Comandos para realizar acciones específicas:
+
+### (a) Ingrese al sistema como usuario “root”
+```bash
+su -"
+```
+
+### (b) Crear un usuario
+```bash
+useradd -m <primera letra de tu nombre><tu apellido>"
+```
+```bash
+passwd <primera letra de tu nombre><tu apellido>"
+```
+
+### (c) Archivos y directorios modificados al crear un usuario
+Los archivos principales que se modifican son:
+- /etc/passwd
+- /etc/shadow
+- /etc/group
+
+Se crea un directorio home para el nuevo usuario, por lo general en:
+```bash
+/home/<primera letra de tu nombre><tu apellido>"
+```
+
+### (d) Crear un directorio en /tmp
+```bash
+mkdir /tmp/cursada2021"
+```
+
+### (e) Copiar archivos de /var/log al nuevo directorio
+```bash
+cp -r /var/log/* /tmp/cursada2021/"
+```
+
+### (f) Cambiar propietario y grupo al nuevo directorio
+```bash
+chown -R <primera letra de tu nombre><tu apellido>:users /tmp/cursada2021/"
+```
+
+### (g) Cambiar permisos
+```bash
+chmod -R 761 /tmp/cursada2021/"
+```
+
+### (h) Acceder a otra terminal virtual
+CTRL+ALT+F(2-6) 
+
+### (i) Nombre de la terminal del nuevo usuario
+```bash
+tty"
+```
+
+### (j) Cantidad de procesos activos
+```bash
+ps aux | wc -l"
+```
+
+### (k) Cantidad de usuarios conectados
+```bash
+who | wc -l"
+```
+
+### (l) Enviar un mensaje al usuario creado
+```bash
+write <primera letra de tu nombre><tu apellido>"
+```
+
+Luego, escribe el mensaje. Para enviarlo, presiona `CTRL+D`.
+
+### (m) Apagar el sistema
+```bash
+shutdown -h now"
+```
+
+## 10. Comandos para realizar acciones específicas:
+
+### (a) Crear un directorio con el número de legajo e ingresar a él
+```bash
+mkdir <número_de_legajo>"
+```
+```bash
+cd <número_de_legajo>"
+```
+
+### (b) Crear un archivo utilizando `vi`
+```bash
+vi LEAME"
+```
+Dentro de vi, ingresar la información solicitada y guardar los cambios con `:wq`.
+
+### (c) Cambiar permisos del archivo LEAME
+```bash
+chmod 071 LEAME"
+```
+
+### (d) Verificar contenido de /etc y crear archivo `leame`
+```bash
+ls /etc > ~/leame"
+```
+
+El sistema de archivos en Linux distingue entre mayúsculas y minúsculas. Por lo tanto, "LEAME" y "leame" son considerados como dos archivos diferentes.
+
+### (e) Buscar un archivo en el filesystem
+Para buscar un archivo específico:
+```bash
+find / -name <nombre_del_archivo>"
+```
+
+Para buscar varios archivos con características similares:
+```bash
+find / -name '<patrón_de_búsqueda>'"
+```
+Por ejemplo, para buscar todos los archivos `.txt` en el sistema: "find / -name '*.txt'"
+
+### (f) Buscar todos los archivos con extensión .so y almacenar el resultado
+```bash
+find / -name '*.so' > .ejercicio_f"
+```
+
