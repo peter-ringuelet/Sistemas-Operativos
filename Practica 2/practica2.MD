@@ -276,3 +276,45 @@ Ejemplo: `kill -9 1234` (Donde 1234 es el PID del proceso)
 - **nice**: Cambia la prioridad de ejecución de un proceso.
 
 Todos estos comandos permiten gestionar y obtener información sobre los procesos, pero con diferentes niveles de detalle y funcionalidad.
+
+## 6. Otros comandos de Linux:
+
+### (a) Empaquetar archivos en GNU/Linux
+El concepto de empaquetar archivos en GNU/Linux se refiere a agrupar múltiples archivos y directorios en un único archivo, facilitando su transferencia o almacenamiento.
+
+### (b) Empaquetamiento y tamaño
+El archivo empaquetado generalmente tiene un tamaño menor que la suma de los tamaños individuales de los archivos contenidos, especialmente si estos archivos tienen contenido similar o redundante.
+
+### (c) Comprimir 4 archivos en uno solo
+1. `tar -cvf nombre_archivo.tar archivo1 archivo2 archivo3 archivo4`
+2. `gzip nombre_archivo.tar` o directamente `tar -czvf nombre_archivo.tar.gz archivo1 archivo2 archivo3 archivo4`
+
+### (d) Comprimir múltiples archivos con un único comando
+Sí, utilizando `tar` junto con `gzip` o `bzip2`. Ejemplo: `tar -czvf archivo_comprimido.tar.gz archivo1 archivo2 archivo3 archivo4`
+
+### (e) Funcionalidad de comandos
+
+- **tar**: Herramienta para empaquetar o desempaquetar archivos.
+- **grep**: Busca patrones específicos dentro de archivos.
+- **gzip**: Comprime o descomprime archivos usando el algoritmo GZIP.
+- **zgrep**: Igual que grep pero para archivos comprimidos.
+- **wc**: Cuenta palabras, líneas y caracteres en archivos.
+
+## 7. Funciones de los comandos:
+
+- `ls −l > prueba`: Lista los archivos del directorio actual con detalle y redirige la salida al archivo "prueba".
+- `ps > PRUEBA`: Muestra los procesos actuales y redirige la salida al archivo "PRUEBA".
+- `chmod 710 prueba`: Cambia los permisos del archivo "prueba" a 710 (propietario puede leer, escribir y ejecutar; grupo puede ejecutar; otros no tienen permisos).
+- `chown root:root PRUEBA`: Intenta cambiar el propietario del archivo "PRUEBA" a root, pero fallará si no se ejecuta como root.
+- `chmod 777 PRUEBA`: Cambia los permisos del archivo "PRUEBA" a 777 (todos pueden leer, escribir y ejecutar).
+- `chmod 700 /etc/passwd`: Intenta cambiar los permisos del archivo "/etc/passwd", pero fallará si no se ejecuta como root.
+- `passwd root`: Intenta cambiar la contraseña del usuario root, pero fallará si no se ejecuta como root.
+- `rm PRUEBA`: Elimina el archivo "PRUEBA".
+- `man /etc/shadow`: Intenta mostrar el manual del archivo "/etc/shadow", pero fallará ya que "/etc/shadow" no es un comando.
+- `find / −name ∗.conf`: Busca todos los archivos con extensión ".conf" en el sistema.
+- `usermod root -d /home/newroot -L`: Intenta cambiar el directorio home del usuario root y bloquear su cuenta, pero fallará si no se ejecuta como root.
+- `cd /root`: Intenta ingresar al directorio home de root, pero fallará si no se tiene permiso.
+- `rm *`: Elimina todos los archivos en el directorio actual.
+- `cd /etc`: Cambia al directorio "/etc".
+- `cp * /home -R`: Intenta copiar todos los archivos y directorios desde "/etc" a "/home", pero puede fallar si hay problemas de permisos.
+- `shutdown`: Intenta apagar el sistema, pero fallará si no se ejecuta como root.
