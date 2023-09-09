@@ -318,3 +318,53 @@ Sí, utilizando `tar` junto con `gzip` o `bzip2`. Ejemplo: `tar -czvf archivo_co
 - `cd /etc`: Cambia al directorio "/etc".
 - `cp * /home -R`: Intenta copiar todos los archivos y directorios desde "/etc" a "/home", pero puede fallar si hay problemas de permisos.
 - `shutdown`: Intenta apagar el sistema, pero fallará si no se ejecuta como root.
+
+## 8. Comandos para acciones específicas:
+
+### (a) Terminar el proceso con PID 23
+```bash
+kill 23
+```
+
+### (b) Terminar el proceso llamado init
+```bash
+killall init
+```
+Nota: **No debes hacer esto**. `init` es el primer proceso que se ejecuta en un sistema Unix/Linux, y matarlo puede causar que el sistema sea inestable o se reinicie. 
+
+### (c) Buscar archivos de usuarios con la cadena “.conf”
+```bash
+find /home -name "*.conf"
+```
+
+### (d) Guardar lista de procesos en /home/<su nombre de usuario>/procesos
+```bash
+ps aux > /home/<su nombre de usuario>/procesos
+```
+Reemplaza `<su nombre de usuario>` con tu nombre de usuario real.
+
+### (e) Cambiar permisos de /home/<su nombre de usuario>/xxxx
+```bash
+chmod 751 /home/<su nombre de usuario>/xxxx
+```
+
+### (f) Cambiar permisos de /home/<su nombre de usuario>/yyyy
+```bash
+chmod 750 /home/<su nombre de usuario>/yyyy
+```
+
+### (g) Borrar todos los archivos del directorio /tmp
+```bash
+rm -rf /tmp/*
+```
+
+### (h) Cambiar propietario de /opt/isodata al usuario iso2021
+```bash
+chown iso2021 /opt/isodata
+```
+
+### (i) Guardar el directorio actual en /home/<su nombre de usuario>/donde
+```bash
+pwd >> /home/<su nombre de usuario>/donde
+```
+Nota: El operador `>>` se usa para agregar al final de un archivo sin sobrescribir su contenido.
