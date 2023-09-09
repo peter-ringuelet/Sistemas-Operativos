@@ -106,3 +106,63 @@ Permite iniciar servicios solo cuando se necesitan, basado en eventos de socket.
 ### o) Concepto de cgroup
 
 Son **grupos de control** que permiten asignar recursos de forma limitada a procesos.
+
+## 3. Usuarios
+
+### (a) Archivos de Información de Usuarios en GNU/Linux
+
+Los archivos principales utilizados en un sistema GNU/Linux para guardar la información de los usuarios son:
+- `/etc/passwd`: Almacena información sobre los usuarios del sistema.
+- `/etc/shadow`: Guarda las contraseñas de los usuarios en forma cifrada.
+- `/etc/group`: Almacena información sobre los grupos en el sistema.
+
+### (b) UID y GID
+
+- **UID (User Identifier)**: Es un número único asignado a cada usuario en un sistema GNU/Linux. Ayuda al sistema a identificar a los usuarios por un número en lugar de por un nombre.
+  
+- **GID (Group Identifier)**: Es un número único asignado a cada grupo en el sistema.
+
+Es posible que existan UIDs iguales en un sistema. Sin embargo, en la práctica, esto no debería suceder ya que cada UID debe ser único para identificar inequívocamente a un usuario.
+
+### (c) Usuario Root
+
+El usuario `root` es el superusuario o administrador en un sistema GNU/Linux. Posee todos los privilegios y puede realizar cualquier operación en el sistema, sin restricciones.
+
+No puede haber más de un usuario con el nombre `root`, pero es posible tener múltiples usuarios con privilegios de root. La UID del usuario `root` es `0`.
+
+### (d) Creación, Modificación y Eliminación de Usuario
+
+Para agregar el usuario `iso2017` con home en `/home/iso_2017` y agregarlo al grupo `catedra`:
+
+```bash
+sudo groupadd catedra
+sudo useradd -m -d /home/iso_2017 -g catedra iso2017
+sudo touch /home/iso_2017/file.txt
+sudo chown iso2017:catedra /home/iso_2017/file.txt
+```
+Para eliminar el usuario `iso2017`:
+
+```bash
+sudo userdel -r iso2017
+```
+
+El comando `userdel` con la opción `-r` eliminará tanto el usuario como su directorio home.
+
+### (e) Funcionalidad de Comandos
+
+- **useradd/adduser**: Comando utilizado para añadir un nuevo usuario al sistema. `adduser` es una versión más amigable de `useradd` y suele ser preferido en algunas distribuciones.
+  
+- **usermod**: Modifica las propiedades de una cuenta de usuario existente, como el directorio home, el shell, entre otros.
+
+- **userdel**: Elimina una cuenta de usuario del sistema.
+
+- **su**: Permite cambiar el usuario con el que se está trabajando. Si se utiliza sin especificar un nombre de usuario, por defecto intentará cambiar al usuario root.
+
+- **groupadd**: Comando utilizado para añadir un nuevo grupo al sistema.
+
+- **who**: Muestra quién está conectado y desde dónde al sistema.
+
+- **groupdel**: Comando que elimina un grupo.
+
+- **passwd**: Permite cambiar la contraseña del usuario. Si eres el superusuario, puedes cambiar la contraseña de cualquier usuario en el sistema.
+
