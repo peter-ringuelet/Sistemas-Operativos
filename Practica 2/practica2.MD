@@ -588,4 +588,52 @@ mv dir2/dir21/f4 dir2/dir21/f4.exe
 chmod 204 dir2/dir21/f3.exe dir2/dir21/f4.exe
 ```
 
-Con estos comandos, se logran todas las acciones solicitadas.
+## 13. Manipulación, empaquetamiento y compresión de archivos
+
+### Comandos para las acciones solicitadas:
+
+1. **Cree un directorio llamado logs en el directorio /tmp**:
+   
+```bash
+mkdir /tmp/logs
+```
+
+2. **Copie todo el contenido del directorio /var/log en el directorio creado en el punto anterior**:
+   
+```bash
+cp -r /var/log/* /tmp/logs/
+```
+
+3. **Empaquete el directorio creado en 1, el archivo resultante se debe llamar "misLogs.tar"**:
+   
+```bash
+tar -cf misLogs.tar /tmp/logs
+```
+
+4. **Empaquete y comprima el directorio creado en 1, el archivo resultante se debe llamar "misLogs.tar.gz"**:
+   
+```bash
+tar -czf misLogs.tar.gz /tmp/logs
+```
+
+5. **Copie los archivos creados en 3 y 4 al directorio de trabajo de su usuario**:
+   
+```bash
+cp misLogs.tar misLogs.tar.gz /home/usuario/
+```
+
+6. **Elimine el directorio creado en 1, logs**:
+   
+```bash
+rm -r /tmp/logs
+```
+
+7. **Desempaquete los archivos creados en 3 y 4 en 2 directorios diferentes**:
+   
+```bash
+mkdir unpacked_tar unpacked_tar_gz
+tar -xf misLogs.tar -C unpacked_tar/
+tar -xzf misLogs.tar.gz -C unpacked_tar_gz/
+```
+
+
