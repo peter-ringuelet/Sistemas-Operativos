@@ -212,6 +212,103 @@ La notación octal es una forma de representar permisos utilizando números. Cad
 
 Por ejemplo, el permiso 755 en notación octal significa que el propietario tiene permisos de lectura, escritura y ejecución (7), mientras que el grupo y otros usuarios tienen permisos de lectura y ejecución (5).
 
+`chmod` es un comando en sistemas Unix y Linux utilizado para cambiar los permisos de archivos o directorios.
+
+### Estructura de permisos (esto lo agregue yo)
+
+Cada archivo o directorio tiene tres tipos de permisos:
+
+1. **u** - Owner (dueño o usuario)
+2. **g** - Group (grupo)
+3. **o** - Others (otros)
+
+Y hay tres tipos de acciones asociadas con cada tipo:
+
+1. **r** - Leer (read)
+2. **w** - Escribir (write)
+3. **x** - Ejecutar (execute)
+
+### Usando números
+
+Se pueden representar los permisos utilizando números. Cada acción tiene un valor asociado:
+
+1. **r** - 4
+2. **w** - 2
+3. **x** - 1
+
+Por ejemplo:
+
+```bash
+chmod 755 archivo
+```
+
+Aquí, 7 (que es 4+2+1) se refiere a "rwx", 5 (que es 4+1) se refiere a "r-x" y el otro 5 también se refiere a "r-x". Por lo que los permisos quedarían como "rwxr-xr-x".
+
+Esto significa:
+
+- El dueño puede leer, escribir y ejecutar (7).
+- Los miembros del grupo pueden leer y ejecutar, pero no escribir (5).
+- Otros usuarios pueden leer y ejecutar, pero no escribir (5).
+
+### Usando letras
+
+Otra forma de usar `chmod` es con letras y símbolos:
+
+- **+** para agregar permisos
+- **-** para eliminar permisos
+- **=** para asignar permisos
+
+Por ejemplo:
+
+```bash
+chmod u=rwx,g=rw,o=r archivo
+```
+
+Esto asigna permisos de lectura, escritura y ejecución para el dueño; lectura y escritura para el grupo; y solo lectura para otros.
+
+Otro ejemplo:
+
+```bash
+chmod g+x archivo
+```
+
+Esto agrega permisos de ejecución al grupo del archivo.
+
+### Ejemplos
+
+1. Para dar todos los permisos al dueño, pero solo lectura y ejecución al grupo y a otros:
+
+```bash
+chmod 755 archivo
+```
+
+2. Para eliminar permisos de escritura a todos:
+
+```bash
+chmod a-w archivo
+```
+
+3. Para dar solo permisos de lectura y escritura al dueño y ninguno al grupo y a otros:
+
+```bash
+chmod 600 archivo
+```
+
+4. Para dar permisos de ejecución a todos:
+
+```bash
+chmod a+x archivo
+```
+
+5. Cambiar permisos de un directorio y su contenido de forma recursiva:
+
+```bash
+chmod -R 755 directorio/
+```
+
+Espero que estos ejemplos te ayuden a comprender mejor cómo funciona `chmod`. ¡Es una herramienta esencial y muy potente en sistemas Unix y Linux!
+
+
 ### (d) Acceso a archivos sin permisos:
 
 El usuario `root` tiene la capacidad de acceder a cualquier archivo, independientemente de los permisos. Así que sí, hay una posibilidad.
