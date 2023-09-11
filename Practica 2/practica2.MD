@@ -440,6 +440,29 @@ Sí, utilizando `tar` junto con `gzip` o `bzip2`. Ejemplo: `tar -czvf archivo_co
 - `cp * /home -R`: Intenta copiar todos los archivos y directorios desde "/etc" a "/home", pero puede fallar si hay problemas de permisos.
 - `shutdown`: Intenta apagar el sistema, pero fallará si no se ejecuta como root.
 
+### Extra mio
+
+El comando `usermod` es utilizado para modificar o cambiar cualquier atributo de una cuenta de usuario ya existente.
+
+- El flag `-d /home/newroot` cambiará el directorio home del usuario a `/home/newroot`.
+- El flag `-L` bloqueará la cuenta de usuario.
+
+Entonces, el comando `usermod root -d /home/newroot -L` hace lo siguiente:
+
+1. Cambia el directorio home de la cuenta `root` a `/home/newroot`.
+2. Bloquea la cuenta `root`, lo que significa que `root` no podrá iniciar sesión.
+
+Si utilizaste el comando `sudo usermod root -L`, bloqueaste el acceso directo a la cuenta de `root` mediante su contraseña.
+
+Para desbloquear la cuenta de `root` después de usar el comando anterior:
+
+```bash
+sudo passwd -u root
+```
+
+Este comando desbloqueará la cuenta de `root` y permitirá nuevamente el acceso directo mediante contraseña. Es importante tener en cuenta las implicaciones de seguridad al habilitar y deshabilitar el acceso directo a la cuenta de `root`. Por razones de seguridad, muchos sistemas deshabilitan el acceso directo a `root` para evitar posibles intrusiones no autorizadas.
+
+
 ## 8. Comandos para acciones específicas:
 
 ### (a) Terminar el proceso con PID 23
