@@ -139,7 +139,7 @@ sudo groupadd catedra
 sudo useradd -m -d /home/iso_2017 -g catedra iso2017
 sudo touch /home/iso_2017/file.txt
 sudo chown iso2017:catedra /home/iso_2017/file.txt
-cierro comillas
+```
 
 Establecer una contraseña para el usuario `iso2017`:
 
