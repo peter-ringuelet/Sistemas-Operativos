@@ -607,7 +607,7 @@ Dentro de vi, ingresar la información solicitada y guardar los cambios con `:wq
 
 ### (c) Cambiar permisos del archivo LEAME
 ```bash
-chmod 071 LEAME
+chmod 017 LEAME
 ```
 
 ### (d) Verificar contenido de /etc y crear archivo `leame`
@@ -646,7 +646,7 @@ find / -name '*.so' > .ejercicio_f
 6. **ls -l &> $HOME/iso/ls**: Guarda el listado detallado del directorio raíz en un archivo llamado "ls" dentro del directorio "iso".
 7. **cd $HOME; mkdir f2**: Regresa al directorio home del usuario y crea un directorio llamado "f2".
 8. **ls -l df2**: Muestra el listado detallado del archivo o directorio "df2". Si no existe, dará error.
-9. **chmod 341 f2**: Cambia los permisos del directorio "f2" dando al dueño lectura, al grupo ejecución y a otros escritura.
+9. **chmod 341 f2**: Cambia los permisos del directorio "f2" dando al dueño escritura y ejecucion, al grupo lectura y a otros ejecucion.
 10. **touch dir**: Crea un archivo vacío llamado "dir".
 11. **cd f2**: Cambia al directorio "f2".
 12. **cd ~/iso**: Cambia al directorio "iso" en el directorio home del usuario.
