@@ -139,7 +139,30 @@ sudo groupadd catedra
 sudo useradd -m -d /home/iso_2017 -g catedra iso2017
 sudo touch /home/iso_2017/file.txt
 sudo chown iso2017:catedra /home/iso_2017/file.txt
+cierro comillas
+
+Establecer una contraseña para el usuario `iso2017`:
+
+```bash
+sudo passwd iso2017
 ```
+
+Para cambiar al usuario `iso2017` desde una terminal:
+
+```bash
+su - iso2017
+```
+
+Si quieres acceder al usuario `iso2017` desde una interfaz gráfica, cierra sesión y vuelve a iniciar sesión seleccionando al usuario `iso2017`.
+
+Si tienes un servidor SSH configurado en tu máquina y deseas acceder como el usuario `iso2017`:
+
+```bash
+ssh iso2017@direccion_ip_de_tu_maquina
+```
+
+Reemplaza "direccion_ip_de_tu_maquina" con la dirección IP real de tu máquina.
+
 Para eliminar el usuario `iso2017`:
 
 ```bash
@@ -147,6 +170,7 @@ sudo userdel -r iso2017
 ```
 
 El comando `userdel` con la opción `-r` eliminará tanto el usuario como su directorio home.
+
 
 ### (e) Funcionalidad de Comandos
 
