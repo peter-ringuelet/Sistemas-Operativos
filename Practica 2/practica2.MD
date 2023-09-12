@@ -675,28 +675,28 @@ find / -name '*.so' > .ejercicio_f
 Primero, se crea la estructura de directorios, subdirectorios y archivos. Asumiendo que el nombre del usuario es `usuario` y partiendo del directorio `/home/usuario`:
 
 ```bash
-mkdir dir1 dir1/dir11 dir1/dir12 dir2 dir2/dir21 dir2/dir22
-touch dir1/f1 dir1/f2 dir1/dir11/f3 dir1/dir11/f4 dir2/f5 dir2/f6 dir2/dir21/f3 dir2/dir21/f4
+mkdir dir1 dir1/dir11 dir2 
+touch f1 f2 dir1/f3 dir2/f4
 ```
 
-### Comandos para las acciones solicitadas:
+### Comandos para las acciones solicitadas (suponiendo que estamos posicionados en `/home/usuario`):
 
 1. **Mover el archivo "f3" al directorio de trabajo `/home/usuario`**:
    
 ```bash
-mv dir1/dir11/f3 /home/usuario/
+mv dir1/f3 .
 ```
 
 2. **Copiar el archivo "f4" en el directorio "dir11"**:
    
 ```bash
-cp dir1/dir11/f4 dir1/dir11/
+cp dir2/f4 dir1/dir11/
 ```
 
 3. **Copiar el archivo "f4" en el directorio "dir11" con el nombre "f7"**:
    
 ```bash
-cp dir1/dir11/f4 dir1/dir11/f7
+cp dir2/f4 dir1/dir11/f7
 ```
 
 4. **Crear el directorio "copia" dentro del directorio "usuario" y copiar el contenido de "dir1" en él**:
@@ -716,20 +716,20 @@ ls -l dir1/archivo
 6. **Cambiar los permisos del archivo llamado "archivo"**:
    
 ```bash
-chmod 614 dir1/archivo
+chmod 617 dir1/archivo
 ```
 
 7. **Renombrar los archivos "f3" y "f4" a "f3.exe" y "f4.exe" respectivamente**:
    
 ```bash
-mv dir2/dir21/f3 dir2/dir21/f3.exe
-mv dir2/dir21/f4 dir2/dir21/f4.exe
+mv f3 f3.exe
+mv dir1/dir11/f4 dir1/dir11/f4.exe
 ```
 
 8. **Cambiar permisos de los archivos "f3.exe" y "f4.exe"**:
    
 ```bash
-chmod 204 dir2/dir21/f3.exe dir2/dir21/f4.exe
+chmod 023 f3.exe dir1/dir11/f4.exe
 ```
 
 ## 13. Manipulación, empaquetamiento y compresión de archivos
@@ -745,31 +745,31 @@ mkdir /tmp/logs
 2. **Copie todo el contenido del directorio /var/log en el directorio creado en el punto anterior**:
    
 ```bash
-cp -r /var/log/* /tmp/logs/
+sudo cp -r /var/log/* /tmp/logs/
 ```
 
 3. **Empaquete el directorio creado en 1, el archivo resultante se debe llamar "misLogs.tar"**:
    
 ```bash
-tar -cf misLogs.tar /tmp/logs
+sudo tar -cf misLogs.tar /tmp/logs
 ```
 
 4. **Empaquete y comprima el directorio creado en 1, el archivo resultante se debe llamar "misLogs.tar.gz"**:
    
 ```bash
-tar -czf misLogs.tar.gz /tmp/logs
+sudo tar -czf misLogs.tar.gz /tmp/logs
 ```
 
 5. **Copie los archivos creados en 3 y 4 al directorio de trabajo de su usuario**:
    
 ```bash
-cp misLogs.tar misLogs.tar.gz /home/usuario/
+cp misLogs.tar misLogs.tar.gz /home/usuario/iso
 ```
 
 6. **Elimine el directorio creado en 1, logs**:
    
 ```bash
-rm -r /tmp/logs
+sudo rm -r /tmp/logs
 ```
 
 7. **Desempaquete los archivos creados en 3 y 4 en 2 directorios diferentes**:
