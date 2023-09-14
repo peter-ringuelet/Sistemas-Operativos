@@ -327,9 +327,64 @@ Ambas sentencias pueden recibir un parámetro numérico opcional que indica a cu
 
 ### **Tipos de Variables**:
 
-1. **Variables Locales**: Son visibles solo dentro del bloque de código donde se declaran.
-2. **Variables de Entorno**: Son disponibles globalmente, en todo el shell.
-3. **Variables de Posición**: Son variables especiales que contienen argumentos pasados al script (`$0`, `$1`, `$2`,...).
+### 1. Variables Locales
+
+Las **variables locales** son las que se definen dentro de un bloque de código, función o script, y solo están disponibles dentro de ese bloque, función o script en el que se declaran. No son accesibles fuera del ámbito donde se crearon.
+
+Por ejemplo, si declaramos una variable local dentro de una función, esta variable no será visible fuera de la función.
+
+abro bash
+#!/bin/bash
+funcion_ejemplo() {
+    local variable_local="Soy una variable local"
+    echo $variable_local
+}
+
+funcion_ejemplo # Esto imprimirá "Soy una variable local"
+echo $variable_local # Esto no imprimirá nada ya que la variable_local es solo local a la función
+cierro bash
+
+### 2. Variables de Entorno
+
+Las **variables de entorno** son variables que están disponibles globalmente para cualquier proceso en el shell. Son utilizadas para definir información que programas y aplicaciones pueden necesitar, como rutas a directorios específicos o configuraciones específicas del sistema.
+
+Por ejemplo, `PATH` es una variable de entorno que indica al sistema dónde buscar archivos ejecutables. 
+
+Las variables de entorno se definen utilizando la instrucción `export`:
+
+abro bash
+#!/bin/bash
+export MI_VARIABLE="Soy una variable de entorno"
+cierro bash
+
+Una vez exportada, `MI_VARIABLE` puede ser accedida por otros procesos o subshells.
+
+### 3. Variables de Posición
+
+Las **variables de posición** son variables especiales utilizadas en shell scripting para referirse a los argumentos pasados a un script o función. 
+
+- `$0`: Representa el nombre del script.
+- `$1`, `$2`, ... : Representan el primer, segundo, etc., argumento proporcionado al script.
+
+Además, hay otras variables relacionadas:
+
+- `$#`: Indica el número total de argumentos pasados al script.
+- `$*`: Representa todos los argumentos pasados al script.
+- `$@`: Similar a `$*`, pero se utiliza cuando se quieren preservar las comillas individuales en argumentos con espacios.
+
+abro bash
+#!/bin/bash
+echo "Nombre del script: $0"
+echo "Primer argumento: $1"
+echo "Segundo argumento: $2"
+echo "Todos los argumentos con \$*: $*"
+echo "Todos los argumentos con \$@: $@"
+echo "Número total de argumentos: $#"
+cierro bash
+
+Si ejecutamos el script anterior con los argumentos "arg1" "arg2 arg3", el output será:
+
+
 
 ### ¿Es Shell Script fuertemente tipado?
 
