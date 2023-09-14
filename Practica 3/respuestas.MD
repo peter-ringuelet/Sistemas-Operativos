@@ -104,3 +104,61 @@ df -h
 
 Con estos cambios, ahora se te pedirá que introduzcas el nombre de un directorio y se mostrará su contenido, además se mostrará tu directorio personal y el espacio libre en disco.
 
+## 4. Parametrización
+
+La parametrización se refiere a la capacidad de un script para aceptar argumentos externos (o parámetros) al momento de su ejecución.
+
+### ¿Cómo se acceden a los parámetros enviados al script al momento de su invocación?
+
+Los parámetros enviados al script se acceden a través de variables especiales. Aquí hay algunas de ellas:
+
+- `$0` - El nombre del script.
+- `$1`, `$2`, ... `$n` - Representan el primer, segundo, ... y enésimo argumento, respectivamente.
+  
+```bash
+#!/bin/bash
+echo "El nombre del script es: $0"
+echo "El primer parámetro es: $1"
+echo "El segundo parámetro es: $2"
+```
+
+### ¿Qué información contienen las variables `$#`, `$*`, `$?` y `$HOME` dentro de un script?
+
+- `$#` - Indica el número total de argumentos pasados al script.
+- `$*` - Representa todos los argumentos pasados al script.
+- `$?` - Devuelve el estado de salida del último comando ejecutado. Un valor de 0 indica éxito, mientras que un valor no cero indica fallo.
+- `$HOME` - Es una variable de entorno que indica el directorio principal del usuario actual.
+
+```bash
+#!/bin/bash
+echo "Total de parámetros: $#"
+echo "Todos los parámetros: $*"
+echo "Estado de salida del último comando: $?"
+echo "Directorio principal del usuario: $HOME"
+```
+
+## 5. Funcionalidad del comando `exit`
+
+El comando `exit` se utiliza para finalizar un script y devolver un valor de estado al shell o programa que lo llamó.
+
+### ¿Qué valores recibe como parámetro y cuál es su significado?
+
+El comando `exit` puede recibir un valor numérico como argumento, que indica el estado de salida del script. Por convención:
+
+- `0` indica éxito.
+- Cualquier valor entre `1` y `255` indica un error o condición inusual. La naturaleza exacta del error debería ser documentada en el script o en el programa.
+
+```bash
+#!/bin/bash
+# Supongamos que hay una condición que verifica si un archivo existe
+if [ -e "archivo.txt" ]; then
+    echo "El archivo existe"
+    exit 0
+else
+    echo "El archivo no existe"
+    exit 1
+fi
+```
+
+Este script comprueba si "archivo.txt" existe. Si existe, el script se termina con un estado de éxito (`0`). Si no existe, el script se termina con un estado de error (`1`).
+
