@@ -233,4 +233,127 @@ else
 fi
 ```
 
+## 8. Estructuras de control en Shell Scripting
+
+### **if**
+
+La estructura `if` se utiliza para ejecutar comandos basados en condiciones.
+
+```bash
+#!/bin/bash
+variable=10
+if [ $variable -lt 20 ]; then
+    echo "La variable es menor que 20"
+fi
+```
+
+También podemos tener `elif` y `else`:
+
+```bash
+#!/bin/bash
+variable=10
+if [ $variable -eq 10 ]; then
+    echo "La variable es 10"
+elif [ $variable -lt 10 ]; then
+    echo "La variable es menor que 10"
+else
+    echo "La variable es mayor que 10"
+fi
+```
+
+### **case**
+
+`case` se utiliza para emparejar una variable con patrones.
+
+```bash
+#!/bin/bash
+opción=$1
+case $opción in
+    start) echo "Comenzando...";;
+    stop) echo "Deteniendo...";;
+    restart) echo "Reiniciando...";;
+    *) echo "Opción inválida";;
+esac
+```
+
+### **while**
+
+El bucle `while` se ejecuta mientras se cumpla una condición.
+
+```bash
+#!/bin/bash
+contador=0
+while [ $contador -lt 5 ]; do
+    echo "Contador: $contador"
+    contador=$(($contador + 1))
+done
+```
+
+### **for**
+
+El bucle `for` se utiliza para iterar sobre valores o rangos.
+
+```bash
+#!/bin/bash
+for i in {1..5}; do
+    echo "Número: $i"
+done
+```
+
+### **select**
+
+`select` es utilizado para generar menús simples.
+
+```bash
+#!/bin/bash
+opciones="Hola Adiós Salir"
+select opt in $opciones; do
+    if [ $opt == "Salir" ]; then
+        break
+    fi
+    echo "Elegiste $opt"
+done
+```
+
+## 9. Acciones de las sentencias `break` y `continue` dentro de un bucle
+
+- **break**: Sale del bucle en el que se encuentra, independientemente de si la condición del bucle todavía se evalúa como verdadera.
+  
+- **continue**: Omite el resto del cuerpo del bucle y vuelve a evaluar la condición, procediendo a la siguiente iteración.
+
+Ambas sentencias pueden recibir un parámetro numérico opcional que indica a cuántos niveles de bucles anidados se debe aplicar. Por defecto, es `1` (sólo el bucle actual).
+
+## 10. Variables en Shell Scripting
+
+### **Tipos de Variables**:
+
+1. **Variables Locales**: Son visibles solo dentro del bloque de código donde se declaran.
+2. **Variables de Entorno**: Son disponibles globalmente, en todo el shell.
+3. **Variables de Posición**: Son variables especiales que contienen argumentos pasados al script (`$0`, `$1`, `$2`,...).
+
+### ¿Es Shell Script fuertemente tipado?
+
+No, shell scripting no es fuertemente tipado. Las variables en Shell se tratan como cadenas de caracteres, independientemente de si contienen números, caracteres o cadenas de texto.
+
+### **Arreglos**
+
+Sí, puedes definir arreglos en Shell Scripting.
+
+```bash
+#!/bin/bash
+array=("elemento1" "elemento2" "elemento3")
+echo "${array[1]}" # Imprime "elemento2"
+```
+
+Para añadir elementos al arreglo:
+
+```bash
+#!/bin/bash
+array=("elemento1" "elemento2" "elemento3")
+array[3]="elemento4"
+echo "${array[@]}" # Imprime todos los elementos del arreglo
+```
+
+
+
 
