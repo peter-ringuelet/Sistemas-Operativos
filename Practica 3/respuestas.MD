@@ -162,3 +162,75 @@ fi
 
 Este script comprueba si "archivo.txt" existe. Si existe, el script se termina con un estado de éxito (`0`). Si no existe, el script se termina con un estado de error (`1`).
 
+## 6. El comando `expr`
+
+`expr` es un comando utilizado para evaluar expresiones. Como mencionaste, su sintaxis general es `expr arg1 op arg2`.
+
+### Tipo de operaciones que se pueden utilizar:
+
+1. **Operaciones Aritméticas**:
+   - `+` : Adición
+   - `-` : Sustracción
+   - `*` : Multiplicación (Nota: el asterisco debe ser escapado `\*` o encerrado entre comillas `'*'` para evitar que sea interpretado por el shell)
+   - `/` : División
+   - `%` : Módulo (resto de la división)
+
+2. **Operaciones Relacionales** (devuelven `1` para verdadero y `0` para falso):
+   - `=` : Igualdad
+   - `!=` : Desigualdad
+   - `>` : Mayor que
+   - `>=` : Mayor o igual que
+   - `<` : Menor que
+   - `<=` : Menor o igual que
+
+3. **Operaciones de Cadena**:
+   - `:` : Devuelve la longitud de la cadena
+
+```bash
+#!/bin/bash
+a=10
+b=20
+suma=$(expr $a + $b)
+echo "La suma es: $suma"
+```
+
+## 7. El comando `test` y su equivalente `[ expresión ]`
+
+El comando `test` se utiliza para evaluar expresiones condicionales.
+
+### Tipo de expresiones que pueden ser usadas con el comando `test`:
+
+1. **Evaluación de Archivos**:
+   - `-d archivo` : Verdadero si el archivo existe y es un directorio.
+   - `-e archivo` : Verdadero si el archivo existe.
+   - `-f archivo` : Verdadero si el archivo existe y es un archivo regular.
+   - `-r archivo` : Verdadero si el archivo existe y se puede leer.
+   - `-s archivo` : Verdadero si el archivo existe y tiene un tamaño mayor a cero.
+   - `-w archivo` : Verdadero si el archivo existe y se puede escribir.
+   - `-x archivo` : Verdadero si el archivo existe y es ejecutable.
+
+2. **Evaluación de Cadenas de Caracteres**:
+   - `-z cadena` : Verdadero si la longitud de la cadena es 0.
+   - `-n cadena` : Verdadero si la longitud de la cadena no es 0.
+   - `cadena1 = cadena2` : Verdadero si las cadenas son iguales.
+   - `cadena1 != cadena2` : Verdadero si las cadenas no son iguales.
+
+3. **Evaluaciones Numéricas**:
+   - `numero1 -eq numero2` : Verdadero si los números son iguales.
+   - `numero1 -ne numero2` : Verdadero si los números no son iguales.
+   - `numero1 -gt numero2` : Verdadero si numero1 es mayor que numero2.
+   - `numero1 -ge numero2` : Verdadero si numero1 es mayor o igual que numero2.
+   - `numero1 -lt numero2` : Verdadero si numero1 es menor que numero2.
+   - `numero1 -le numero2` : Verdadero si numero1 es menor o igual que numero2.
+
+```bash
+#!/bin/bash
+archivo="/path/a/un/archivo"
+if [ -e "$archivo" ]; then
+    echo "El archivo existe."
+else
+    echo "El archivo no existe."
+fi
+```
+
+
