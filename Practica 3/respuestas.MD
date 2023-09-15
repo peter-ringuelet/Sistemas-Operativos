@@ -356,8 +356,14 @@ Las variables de entorno se definen utilizando la instrucción `export`:
 #!/bin/bash
 export MI_VARIABLE="Soy una variable de entorno"
 ```
-
 Una vez exportada, `MI_VARIABLE` puede ser accedida por otros procesos o subshells.
+
+**1** Si ejecutas el script de la forma usual (por ejemplo, ./tuScript.sh), la variable se exportará solo para ese proceso/script. Una vez que el script finalice, cualquier shell o proceso que lo haya invocado no tendrá acceso a MI_VARIABLE.
+
+**2** Si deseas que la variable esté disponible en tu shell actual después de ejecutar el script, debes sourcear el script en lugar de ejecutarlo. "Sourcear" un script significa ejecutarlo en el contexto del shell actual en lugar de en un subproceso. Puedes hacerlo de la siguiente manera:
+```bash
+source tuScript.sh
+```
 
 #### 3. Variables de Posición
 
