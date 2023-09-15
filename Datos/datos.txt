@@ -1,0 +1,4 @@
+1. Si hago un kill 9 init hago mierda todo, se pone toda la pantalla en negro
+2. con el & ejecutas un comando en segundo plano
+3. readelf ls te hace una descomposision del ls, o algo asi 
+4. aprender a hackear mainframe, es la computadora que usan todas las aerolineas, bancos. Los mainframe no se reinician, son equipos. Soporta virtualizacion. z16 es la mas nueva. z12 y z15 tienen en arba. Integracion de asistentes de ai por hardware. usa el z/os generalmente de software, aprender a hackearlo. OSI se usa. Alemania es cuna de los mainframe, garpan mucho porque hay muy pocos

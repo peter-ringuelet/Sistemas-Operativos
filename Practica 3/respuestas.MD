@@ -389,8 +389,12 @@ echo "Número total de argumentos: $#"
 ```
 
 Si ejecutamos el script anterior con los argumentos "arg1" "arg2 arg3", el output será:
-
-
+	Nombre del script: ./variable_posicion.sh
+	Primer argumento: arg1
+	Segundo argumento: arg2 arg3
+	Todos los argumentos con $*: arg1 arg2 arg3
+	Todos los argumentos con $@: arg1 arg2 arg3
+	Número total de argumentos: 2
 
 ### ¿Es Shell Script fuertemente tipado?
 
