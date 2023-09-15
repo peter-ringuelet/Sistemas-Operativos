@@ -1,0 +1,20 @@
+total 68
+lrwxrwxrwx   1 root root     7 Sep  8 17:44 bin -> usr/bin
+drwxr-xr-x   4 root root  4096 Sep  8 17:55 boot
+drwxr-xr-x  18 root root  3440 Sep 11 11:26 dev
+drwxr-xr-x 179 root root 12288 Sep 11 14:56 etc
+drwxr-xr-x   5 root root  4096 Sep 11 14:41 home
+lrwxrwxrwx   1 root root     7 Sep  8 17:44 lib -> usr/lib
+drwx------   2 root root 16384 Sep  8 17:44 lost+found
+drwxr-xr-x   3 root root  4096 Sep  8 17:44 media
+drwxr-xr-x   2 root root  4096 Sep  8 17:44 mnt
+drwxr-xr-x   2 root root  4096 Sep  8 17:44 opt
+dr-xr-xr-x 309 root root     0 Sep 11 11:26 proc
+drwx------   5 root root  4096 Sep 11 14:53 root
+drwxr-xr-x  33 root root   820 Sep 11 11:27 run
+lrwxrwxrwx   1 root root     8 Sep  8 17:44 sbin -> usr/sbin
+drwxr-xr-x   3 root root  4096 Sep  8 17:51 srv
+dr-xr-xr-x  13 root root     0 Sep 11 11:26 sys
+drwxrwxrwt  16 root root  4096 Sep 11 14:39 tmp
+drwxr-xr-x  13 root root  4096 Sep  8 17:47 usr
+drwxr-xr-x  12 root root  4096 Sep  8 17:45 var
