@@ -69,9 +69,9 @@ Los runlevels estándar son:
 
 Para cambiar de un runlevel a otro, usarías el comando `init`. Por ejemplo, para cambiar al runlevel 3, ejecutarías:
 
-abro bash
+```bash
 sudo init 3
-cierro bash
+```
 
 Este cambio no es permanente; solo afecta a la sesión actual. Para cambios permanentes, tendrías que modificar el archivo `/etc/inittab`.
 
