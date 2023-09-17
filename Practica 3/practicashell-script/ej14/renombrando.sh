@@ -17,14 +17,14 @@ case $opcion in
 	-a)
 		for archivo in *; do
 			if [ -f $archivo ]; then
-				mv $archivo ${archivo}${cadena}
+				mv "$archivo" "${archivo}${cadena}"
 			fi
 		done
 	;;
 	-b)
 		for archivo in *; do
 			if [ -f $archivo ]; then
-				mv ${cadena}${archivo}
+				mv "$archivo" "${cadena}${archivo}"
 			fi
 		done
 	;;
@@ -34,5 +34,6 @@ case $opcion in
 	;;
 esac
 
-cd -
-echo "Archivo renombrado con exito"
+cd - > /dev/null
+# > /dev/null es para que no se imprima en pantalla el directorio al que cambie con el cd
+echo "Archivos renombrados con exito"
