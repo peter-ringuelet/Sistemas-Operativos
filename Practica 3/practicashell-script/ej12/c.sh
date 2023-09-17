@@ -1,9 +1,11 @@
 
-op=$s1
-num1=$s2
-num2=$s3
+op=$1
+num1=$2
+num2=$3
 case $op in
-	'+') echo "$(expr num1 + num2)";;
-	'-') echo "$(expr num1 - num2)";;
+	+) echo "$num1 + $num2 = $(expr $num1 + $num2)";;
+	-) echo "$num1 - $num2 = $(expr $num1 - $num2)";;
+	\*) echo "$num1 * $num2 = $(expr $num1 \* $num2)";;
+	/) echo "$num1 / $num2 = $(expr $num1 / $num2)";;
 	*) echo "Opcion incorrecta";;
 esac
