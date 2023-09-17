@@ -27,66 +27,75 @@ Estos comandos son para **visualizar** el contenido de archivos, pero no para **
 - `i`: Entrar en modo de inserción.
 - `Esc`: Volver al modo normal.
 
-## 2. Proceso de Arranque SystemV
+## 2. Proceso de Arranque SystemV:
 
-### a) Procesos de inicio
+### (a) Pasos del Proceso de Inicio de GNU/Linux:
 
-1. BIOS o UEFI inicializa el hardware.
-2. Carga del gestor de arranque (GRUB o similar).
-3. Carga del kernel.
-4. INIT (o alternativa como systemd) toma el control.
-5. Ejecución de scripts y servicios.
-6. Login en el sistema.
+1. **BIOS (Basic Input/Output System):** La BIOS realiza la POST (Prueba de Autoinicio), verifica el hardware y busca un dispositivo de arranque.
+2. **MBR (Master Boot Record):** Está ubicado en el primer sector del dispositivo de arranque y contiene el bootloader y la tabla de particiones.
+3. **Bootloader (GRUB, LILO, etc.):** Carga el kernel en la memoria.
+4. **Kernel:** Inicia y monta el sistema de archivos raíz.
+5. **INIT:** Es el primer proceso ejecutado por el kernel. Dependiendo de la configuración, se ejecuta System V o Upstart.
 
-### b) Proceso INIT
+### (b) Proceso INIT:
 
-- **Ejecutado por**: El kernel.
-- **Objetivo**: Iniciar y gestionar servicios y procesos.
+El proceso INIT es el primer proceso que se ejecuta en el espacio de usuario tras cargar el kernel. **¿Quién lo ejecuta?** Es ejecutado por el kernel. **¿Cuál es su objetivo?** Su objetivo es inicializar el sistema, arrancar todos los servicios y daemons necesarios y gestionar todos los demás procesos.
 
-### c) Comando `pstree`
+### (c) Comando `pstree`:
 
-Muestra una **estructura de árbol** de todos los procesos en el sistema.
+Al ejecutar el comando `pstree`, se muestra un árbol de procesos del sistema. Este comando nos permite observar la jerarquía de los procesos, mostrando quién es el padre y quiénes son los hijos.
 
-### d) RunLevels
+### (d) RunLevels:
 
-Son **estados del sistema** que determinan qué servicios deben estar en funcionamiento.
+Los **RunLevels** definen conjuntos de programas que se ejecutan al arrancar o detener el sistema. **¿Cuál es su objetivo?** Controlar qué servicios y procesos se ejecutan en diferentes momentos o estados del sistema.
 
-### e) Niveles según el estándar
+### (e) Niveles de Ejecución:
 
-- 0: Apagar
-- 1: Modo de usuario único
-- 2-5: Modos multiusuario
-- 6: Reiniciar
+Los runlevels estándar son:
 
-La definición del Runlevel inicial normalmente está en `/etc/inittab`.
+- 0: Apagar el sistema.
+- 1: Modo usuario único (resolución de problemas, mantenimiento).
+- 2-4: Modos multiusuario (diferentes configuraciones).
+- 5: Modo gráfico (GUI).
+- 6: Reinicio.
 
-### f) Archivo `/etc/inittab`
+**¿Dónde se define qué Runlevel ejecutar?** Se define en el archivo `/etc/inittab`. No todas las distribuciones siguen estos estándares al pie de la letra, pero la mayoría lo hace.
 
-Guarda configuraciones para el proceso INIT, incluyendo el Runlevel por defecto.
+### (f) Archivo `/etc/inittab`:
 
-### g) Cambio de Runlevel
+**Finalidad:** Es el archivo principal que INIT utiliza para arrancar scripts y programas durante la inicialización. **Tipo de información:** Define el runlevel por defecto, la ejecución de ciertos programas o scripts, y cómo manejar ciertas condiciones, como un reinicio inesperado. **Estructura:** Cada línea tiene un identificador único, el runlevel asociado, la acción a realizar y el comando a ejecutar.
 
-Comando `init [NUEVO_RUNLEVEL]`. No es permanente, solo afecta la sesión actual.
+### (g) Cambio de Runlevel:
 
-### h) Scripts RC
+Para cambiar de un runlevel a otro, usarías el comando `init`. Por ejemplo, para cambiar al runlevel 3, ejecutarías:
 
-Son scripts que se ejecutan en cada cambio de Runlevel. Normalmente se encuentran en `/etc/rc.d/`.
+abro bash
+sudo init 3
+cierro bash
 
-### i) `insserv`
+Este cambio no es permanente; solo afecta a la sesión actual. Para cambios permanentes, tendrías que modificar el archivo `/etc/inittab`.
 
-Ordena los scripts de inicio para optimizar el arranque.
+### (h) Scripts RC:
 
-### j) Upstart en arranque
+**Finalidad:** Son scripts que inician o detienen servicios y otros scripts dependiendo del runlevel. **Ubicación:** Generalmente en `/etc/rc.d/` o `/etc/init.d/`. El sistema determina qué script ejecutar basándose en el runlevel actual y las configuraciones en los directorios `/etc/rcX.d/` (donde X es el número del runlevel). Existe un orden específico, generalmente dictado por el nombre del script o un número prefixado al script.
 
-Reemplaza a SystemV INIT y ofrece arranque basado en eventos.
+### (i) `insserv`:
 
-### k) Diferencias entre SystemV y Upstart
+`insserv` permite al administrador del sistema habilitar o deshabilitar servicios durante los runlevels. Comparado con el arranque tradicional, `insserv` ordena los scripts de inicio basándose en sus dependencias, lo que puede resultar en un proceso de arranque más rápido y eficiente.
 
-Upstart es **orientado a eventos** y más flexible.
+### (j) Upstart en el Proceso de Arranque:
 
-### l) Reemplazo en Upstart
+Upstart es un reemplazo para el System V init. Su objetivo es iniciar los servicios en paralelo para acelerar el proceso de arranque. A diferencia del INIT tradicional, Upstart se basa en eventos.
 
-Los jobs de Upstart, almacenados en `/etc/init`.
+### (k) Diferencias entre SystemV y Upstart:
+
+1. SystemV se basa en runlevels, mientras que Upstart se basa en eventos.
+2. Upstart intenta arrancar servicios en paralelo, mientras que SystemV sigue un orden específico.
+3. La configuración de Upstart se encuentra en `/etc/init/`, mientras que SystemV utiliza `/etc/inittab`.
+
+### (l) Reemplazo de Scripts RC en Upstart:
+
+En Upstart, los scripts rc de SystemV son reemplazados por archivos de configuración de trabajo que se encuentran en `/etc/init/`. Estos archivos definen cuándo y cómo iniciar o detener un servicio o aplicación.
 
 ### m) Ejemplo de job de Upstart
 
