@@ -419,6 +419,53 @@ array[3]="elemento4"
 echo "${array[@]}" # Imprime todos los elementos del arreglo
 ```
 
+## 15. Comando `cut`
 
+El comando `cut` se utiliza para cortar secciones de cada línea de archivos o flujos de entrada, como columnas o campos específicos.
+
+### Parámetros Principales:
+
+- `-b` LISTA: Selecciona los bytes de la entrada especificada por LISTA.
+- `-c` LISTA: Selecciona los caracteres de la entrada especificada por LISTA.
+- `-d` DELIMITADOR: Utiliza DELIMITADOR en lugar del delimitador de tabulación por defecto para campos. 
+- `-f` LISTA: Selecciona los campos separados por el delimitador (especificado con `-d`). 
+- `--complement`: Selecciona todos los bytes, caracteres o campos no especificados por `-b`, `-c` o `-f`.
+- `--output-delimiter=STRING`: Utiliza STRING como delimitador de salida en lugar del delimitador de entrada.
+
+### Ejemplos de Uso:
+
+1. **Cortar por Byte:** 
+
+abro bash
+echo "HolaMundo" | cut -b 1-4
+cierro bash
+
+Esto devolverá "Hola".
+
+2. **Cortar por Carácter:** 
+
+abro bash
+echo "HolaMundo" | cut -c 5-9
+cierro bash
+
+Esto devolverá "Mundo".
+
+3. **Usar un Delimitador Específico y Seleccionar Campos:** 
+
+Supongamos que tenemos un archivo `nombres.txt` con el siguiente contenido:
+
+```txt
+Luis,25,Madrid
+Maria,30,Barcelona
+Pedro,28,Valencia
+```
+
+Para seleccionar solo los nombres:
+
+```bash
+cut -d ',' -f 1 nombres.txt
+```
+
+Esto devolverá:
 
 
