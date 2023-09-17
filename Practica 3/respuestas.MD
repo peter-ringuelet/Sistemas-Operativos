@@ -453,9 +453,11 @@ Esto devolverá "Mundo".
 3. **Usar un Delimitador Específico y Seleccionar Campos:** 
 
 Supongamos que tenemos un archivo `nombres.txt` con el siguiente contenido:
+```txt
 Luis,25,Madrid
 Maria,30,Barcelona
 Pedro,28,Valencia
+```
 
 Para seleccionar solo los nombres:
 
@@ -464,19 +466,22 @@ cut -d ',' -f 1 nombres.txt
 ```
 
 Esto devolverá:
+```txt
 Luis
 Maria
 Pedro
+```
 
 4. **Seleccionar Varios Campos con un Delimitador Específico:** 
 ```bash
 cut -d ',' -f 1,3 nombres.txt
 ```
-
+```txt
 Esto devolverá:
 Luis,Madrid
 Maria,Barcelona
 Pedro,Valencia
+```
 
 5. **Cambiar el Delimitador de Salida:** 
 
@@ -485,9 +490,10 @@ cut -d ',' -f 1,3 --output-delimiter=' - ' nombres.txt
 ```
 
 Esto devolverá:
+```txt
 Luis - Madrid
 Maria - Barcelona
 Pedro - Valencia
-
+```
 
 Estos son solo algunos ejemplos básicos de cómo usar el comando `cut`. Es una herramienta potente y versátil para procesar texto y datos en la línea de comandos.
