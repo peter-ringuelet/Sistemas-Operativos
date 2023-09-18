@@ -498,8 +498,16 @@ Pedro - Valencia
 
 Estos son solo algunos ejemplos básicos de cómo usar el comando `cut`. Es una herramienta potente y versátil para procesar texto y datos en la línea de comandos.
 
+## Comando `tr`
 
-## 17. Comando tr
+El comando `tr` (translate o transformar) es una utilidad de la línea de comandos en sistemas Unix y Unix-like que se utiliza para traducir, eliminar o comprimir caracteres de una entrada estándar y escribirlos en la salida estándar. Es especialmente útil para tareas de transformación de texto como reemplazar caracteres, convertir caracteres de mayúsculas a minúsculas y viceversa, eliminar caracteres no deseados y más.
+
+### Sintaxis Básica:
+
+```txt
+tr[OPCIONES]SET1[SET2]
+
+###Uso y Ejemplos
 
 1. **Convertir letras minúsculas a mayúsculas**:
    
