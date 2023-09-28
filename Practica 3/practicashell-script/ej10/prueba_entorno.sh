@@ -1,1 +1,0 @@
-echo $MI_VARIABLE
