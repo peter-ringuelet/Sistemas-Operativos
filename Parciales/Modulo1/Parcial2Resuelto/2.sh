@@ -22,7 +22,7 @@ else
 					if [ -d $directorio/$archivo ]; then
 						echo "$directorio/$archivo es un directorio"
 						if [ -w $directorio/$archivo ]; then
-							"Se tienen permisos de escritura sobre $directorio/$archivo"
+							echo "Se tienen permisos de escritura sobre $directorio/$archivo"
 						fi
 					fi
 				fi
