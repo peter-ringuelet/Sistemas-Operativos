@@ -1,6 +1,6 @@
 #!/bin/bash
 
-arreglo=(cat /var/log/municipios.txt | cut -d " " -f1)
+arreglo=($(cat /var/log/municipios.txt | cut -d " " -f1))
 
 existeMunicipio(){
 	if [ $# -ne 1 ]; then
@@ -8,14 +8,18 @@ existeMunicipio(){
 		exit 1
 	else
 
-		existe=true
+		existe=false
 		for i in ${arreglo[@]}; do
 			if [ $i == $1 ]; then
 				encontre=true
 				break
 			fi
 		done
-		return encontre
+		if [ ! encontre ]; then
+			return 1
+		else
+			return 0
+		fi
 	fi
 }
 
@@ -43,3 +47,4 @@ listarMunicipios
 agregarMunicipio elMago
 agregarMunicipio LaPlata
 cantidadMunicipios
+listarMunicipios
