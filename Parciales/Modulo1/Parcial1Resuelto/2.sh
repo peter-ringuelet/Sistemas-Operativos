@@ -5,7 +5,7 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-arreglo=($(grep "^$1" /etc/passwd | cut -d: -f1))
+arreglo=($(grep "$1" /etc/passwd | cut -d: -f1))
 
 opciones="listar eliminar contar finalizar"
 select opt in $opciones; do
