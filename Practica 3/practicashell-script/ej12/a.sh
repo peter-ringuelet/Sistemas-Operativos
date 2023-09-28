@@ -7,7 +7,7 @@ echo "La multiplicacion da $mult"
 echo "La division da $div"
 echo "La resta da $resta"
 if [ $num1 -lt $num2 ]; then
-	echo" $num1 es menor que $num2"
+	echo " $num1 es menor que $num2"
 elif [ $num1 -eq $num2 ]; then
 	echo " Ambos numeros son iguales"
 else

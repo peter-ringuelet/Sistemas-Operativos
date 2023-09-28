@@ -497,3 +497,65 @@ Pedro - Valencia
 ```
 
 Estos son solo algunos ejemplos básicos de cómo usar el comando `cut`. Es una herramienta potente y versátil para procesar texto y datos en la línea de comandos.
+
+## Comando `tr`
+
+El comando `tr` (translate o transformar) es una utilidad de la línea de comandos en sistemas Unix y Unix-like que se utiliza para traducir, eliminar o comprimir caracteres de una entrada estándar y escribirlos en la salida estándar. Es especialmente útil para tareas de transformación de texto como reemplazar caracteres, convertir caracteres de mayúsculas a minúsculas y viceversa, eliminar caracteres no deseados y más.
+
+### Sintaxis Básica:
+
+```txt
+tr[OPCIONES]SET1[SET2]
+
+###Uso y Ejemplos
+
+1. **Convertir letras minúsculas a mayúsculas**:
+   
+```bash
+echo "hola mundo" | tr 'a-z' 'A-Z'
+```
+   
+El resultado sería `HOLA MUNDO`.
+
+2. **Eliminar un conjunto de caracteres**:
+
+Para eliminar todas las vocales de una cadena:
+
+```bash
+echo "hola mundo" | tr -d 'aeiou'
+```
+
+El resultado sería `hl mnd`.
+
+3. **Comprimir una secuencia de un caracter específico**:
+
+Si desea comprimir una secuencia de espacios repetidos en un solo espacio:
+
+```bash
+echo "hola    mundo" | tr -s ' '
+```
+
+El resultado sería `hola mundo`.
+
+4. **Reemplazar caracteres**:
+
+Para reemplazar todos los dígitos en una cadena con 'X':
+
+```bash
+echo "hola123" | tr '0-9' 'X'
+```
+
+El resultado sería `holaXXX`.
+
+### Puntos clave:
+
+- `SET1` y `SET2` son conjuntos de caracteres. Cualquier carácter en la entrada que esté en `SET1` se reemplaza o se elimina según `SET2` y las opciones dadas.
+  
+- La opción `-d` permite eliminar caracteres en `SET1`.
+
+- La opción `-s` permite comprimir un conjunto de caracteres repetidos a una sola ocurrencia.
+
+- Si `SET1` y `SET2` tienen longitudes diferentes, `tr` expande el último carácter de `SET2` para que tengan la misma longitud.
+
+El comando `tr` es una herramienta simple pero poderosa que es esencial para el procesamiento de texto en la línea de comandos.
+
