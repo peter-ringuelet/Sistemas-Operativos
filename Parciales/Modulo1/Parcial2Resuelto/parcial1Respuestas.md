@@ -1,0 +1,1 @@
+son las mismas que el parcial 1
