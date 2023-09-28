@@ -15,7 +15,7 @@ existeMunicipio(){
 				break
 			fi
 		done
-		if [ ! encontre ]; then
+		if [ ! $existe ]; then
 			return 1
 		else
 			return 0
@@ -28,7 +28,7 @@ agregarMunicipio(){
 		echo "No se ha ingresado un nombre"
 		exit 2
 	else
-		if [ ! existeMunicipio $1 ]; then
+		if  existeMunicipio $1 ; then
 			arreglo[${#arreglo[@]}]=$1
 		fi
 	fi
