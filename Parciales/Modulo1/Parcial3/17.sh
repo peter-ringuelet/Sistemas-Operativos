@@ -54,7 +54,7 @@ usuarios(){
 usuarios
 cantidad
 echo "Usuarios con patron: "
-usuarios_con_patron pe
+usuarios_con_patron peter
 echo "A quien quiere eliminar?"
 read usuario
 eliminar_usuario $usuario
