@@ -38,7 +38,34 @@ replace(){
 	fi
 }
 
-echo "${arreglo[@]}"
+eliminar(){
+	if [ ! $# -eq 1 ]; then
+		echo "Se debe ingresar solo 1 parametro"
+		exit 4
+	fi
+	if existe $1; then
+		pos=$(existe $1)
+		unset arreglo[$pos]
+		arreglo=(${arreglo[@]})
+	else
+		echo "Error 2"
+		exit 2
+	fi
+}
+
+cantidad(){
+	echo "${#arreglo[@]}"
+}
+
+todos(){
+	echo "${arreglo[@]}"
+}
+
+todos
+cantidad
 replace pedro pablo
-echo "${arreglo[@]}"
+todos
+cantidad
+eliminar omar
+todos cantidad
 
