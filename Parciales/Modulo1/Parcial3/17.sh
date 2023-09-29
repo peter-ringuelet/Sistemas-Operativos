@@ -23,7 +23,7 @@ eliminar_usuario(){
 		for i in ${arreglo[@]}; do
 			if [ "$1" == "$i" ]; then
 				unset arreglo[$pos]
-				arreglo=($arreglo[@])
+				arreglo=(${arreglo[@]})
 				echo "Usuario eliminado con exito"
 				break
 			fi
