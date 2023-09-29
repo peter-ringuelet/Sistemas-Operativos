@@ -5,7 +5,7 @@ if [ $# -lt 2 ]; then
 	exit 1
 fi
 
-arreglo = ($@)
+arreglo=($@)
 
 existe(){
 	if [ $# -ne 1 ]; then
@@ -13,8 +13,9 @@ existe(){
 	fi
 
 	encontre=false
-	for i in ${#arreglo[@]}; do
+	for (( i=0; i< ${#arreglo[@]}; i++ )); do
 		if [ "${arreglo[$i]}" == "$1" ]; then
+			encontre=true
 			echo "$i"
 			break
 		fi
@@ -32,7 +33,12 @@ replace(){
 	fi
 
 	if existe $1; then
-		pos=existe $1
+		pos=$(existe $1)
 		arreglo[$pos]=$2
 	fi
 }
+
+echo "${arreglo[@]}"
+replace pedro pablo
+echo "${arreglo[@]}"
+
