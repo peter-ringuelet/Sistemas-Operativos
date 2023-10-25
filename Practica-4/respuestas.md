@@ -94,6 +94,84 @@
 
 ```
 
-
 ### (i) Scheduler Responsable de las Transiciones:
 El Short Term Scheduler (Planificador a Corto Plazo) es responsable de las transiciones entre los estados Listo, Ejecución y Espera.
+
+## 3. Algoritmos de Scheduling:
+
+### 3.1 FCFS (First Come First Served)
+#### (a) Funcionamiento mediante un ejemplo:
+   - Procesos: P1(5), P2(3), P3(8) (número representa unidades de tiempo)
+   - Orden de ejecución: P1 -> P2 -> P3
+   - P1 se ejecuta primero por completo, seguido por P2 y finalmente P3.
+
+#### (b) ¿Alguno de ellos requiere algún parámetro para su funcionamiento?
+   - No requiere parámetros adicionales.
+
+#### (c) Cual es el mas adecuado según los tipos de procesos y/o SO.
+   - Más adecuado para procesos con tiempos de ejecución predecibles y similares.
+
+#### (d) Cite ventajas y desventajas de su uso.
+   - Ventajas: Simplicidad.
+   - Desventajas: Ineficiente en términos de tiempo de respuesta y tiempo de espera.
+
+### 3.2 SJF (Shortest Job First)
+#### (a) Funcionamiento mediante un ejemplo:
+   - Procesos: P1(5), P2(3), P3(8)
+   - Orden de ejecución: P2 -> P1 -> P3
+   - El proceso con el menor tiempo de ejecución se ejecuta primero.
+
+#### (b) ¿Alguno de ellos requiere algún parámetro para su funcionamiento?
+   - No requiere parámetros adicionales, pero necesita conocer de antemano el tiempo de ejecución de cada proceso.
+
+#### (c) Cual es el mas adecuado según los tipos de procesos y/o SO.
+   - Adecuado para sistemas donde el tiempo de ejecución de los procesos es predecible y consistente.
+
+#### (d) Cite ventajas y desventajas de su uso.
+   - Ventajas: Proporciona el mínimo tiempo de espera para un conjunto dado de procesos.
+   - Desventajas: Puede causar inanición para procesos con tiempos de ejecución largos.
+
+### 3.3 Round Robin
+#### (a) Funcionamiento mediante un ejemplo:
+   - Quantum de tiempo: 4 unidades
+   - Procesos: P1(5), P2(3), P3(8)
+   - Orden de ejecución: P1 -> P2 -> P3 -> P1 -> P3
+   - Cada proceso se ejecuta por un tiempo igual al quantum o hasta que termine.
+
+#### (b) ¿Alguno de ellos requiere algún parámetro para su funcionamiento?
+   - Requiere el quantum de tiempo como parámetro.
+
+#### (c) Cual es el mas adecuado según los tipos de procesos y/o SO.
+   - Adecuado para sistemas interactivos y de tiempo compartido.
+
+#### (d) Cite ventajas y desventajas de su uso.
+   - Ventajas: Todos los procesos tienen garantizado un tiempo de CPU.
+   - Desventajas: El rendimiento depende de la longitud del quantum de tiempo.
+
+### 3.4 Prioridades
+#### (a) Funcionamiento mediante un ejemplo:
+   - Procesos: P1(5, prioridad 1), P2(3, prioridad 2), P3(8, prioridad 3)
+   - Orden de ejecución: P1 -> P2 -> P3
+   - El proceso con la mayor prioridad se ejecuta primero.
+
+#### (b) ¿Alguno de ellos requiere algún parámetro para su funcionamiento?
+   - Cada proceso debe tener una prioridad asignada.
+
+#### (c) Cual es el mas adecuado según los tipos de procesos y/o SO.
+   - Adecuado para sistemas donde algunos procesos son más importantes que otros.
+
+#### (d) Cite ventajas y desventajas de su uso.
+   - Ventajas: Permite dar más recursos a procesos críticos.
+   - Desventajas: Puede llevar a inanición de procesos de baja prioridad.
+
+## 4. Round Robin con Timer Variable y Timer Fijo
+### (a) ¿Qué significan estas 2 variantes?
+   - **Timer Fijo:** El quantum de tiempo es constante para todos los procesos.
+   - **Timer Variable:** El quantum de tiempo puede ajustarse dinámicamente según la necesidad.
+
+### (b) Explique mediante un ejemplo sus diferencias.
+   - **Timer Fijo:** Si se establece un quantum de 4 unidades de tiempo, todos los procesos recibirán exactamente 4 unidades de tiempo por turno, independientemente de su comportamiento o neces
+
+### (c) En cada variante ¿Dónde debería residir la información del Quantum?
+   - **Timer Fijo:** La información del quantum generalmente reside en el sistema operativo, ya que es un valor constante y aplicado globalmente a todos los procesos.
+   - **Timer Variable:** La información del quantum podría residir tanto en el sistema operativo como en la estructura de control de cada proceso, dado que el quantum puede ajustarse dinámicamente para cada proceso según su comportamiento o necesidades específicas. Esto podría requerir mecanismos adicionales para determinar y ajustar el quantum de tiempo para cada proceso.
