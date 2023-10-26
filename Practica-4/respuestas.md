@@ -175,3 +175,22 @@ El Short Term Scheduler (Planificador a Corto Plazo) es responsable de las trans
 ### (c) En cada variante ¿Dónde debería residir la información del Quantum?
    - **Timer Fijo:** La información del quantum generalmente reside en el sistema operativo, ya que es un valor constante y aplicado globalmente a todos los procesos.
    - **Timer Variable:** La información del quantum podría residir tanto en el sistema operativo como en la estructura de control de cada proceso, dado que el quantum puede ajustarse dinámicamente para cada proceso según su comportamiento o necesidades específicas. Esto podría requerir mecanismos adicionales para determinar y ajustar el quantum de tiempo para cada proceso.
+
+## 6
+### (c) Comparación de Algoritmos
+
+- **FCFS:** Es simple, pero puede llevar a la anomalía de convoy, donde procesos cortos deben esperar mucho tiempo por procesos largos.
+- **SJF:** Minimiza el tiempo de espera, pero es difícil de implementar porque requiere conocimiento previo de la duración de los jobs.
+- **Round Robin con quantum = 1:** Ofrece respuesta rápida para todos los procesos, pero aumenta el tiempo de espera y retorno.
+- **Round Robin con quantum = 6:** Balance entre tiempo de espera y retorno. Puede ser una buena opción si los procesos tienen duraciones variadas.
+
+### 6(d) Conclusión sobre el Valor del Quantum en Round Robin
+
+El valor del quantum afecta directamente el rendimiento del algoritmo Round Robin. Un quantum demasiado pequeño puede llevar a un alto overhead y tiempos de espera largos, mientras que un quantum demasiado grande puede hacer que el algoritmo se comporte más como FCFS, con largos tiempos de espera para procesos cortos.
+
+### 6(e) Uso de Valor de Quantum Alto en Round Robin
+
+- **Casos de Uso:** Cuando los procesos tienen duraciones similares o cuando se desea minimizar el cambio de contexto.
+- **Ventajas:** Menos cambio de contexto, lo que puede llevar a un mejor rendimiento si el overhead de cambio de contexto es significativo.
+- **Desventajas:** Puede llevar a tiempos de espera largos para procesos cortos, especialmente si llegan mientras un proceso largo se está ejecutando.
+
