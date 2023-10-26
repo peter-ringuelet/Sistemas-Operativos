@@ -194,3 +194,18 @@ El valor del quantum afecta directamente el rendimiento del algoritmo Round Robi
 - **Ventajas:** Menos cambio de contexto, lo que puede llevar a un mejor rendimiento si el overhead de cambio de contexto es significativo.
 - **Desventajas:** Puede llevar a tiempos de espera largos para procesos cortos, especialmente si llegan mientras un proceso largo se está ejecutando.
 
+## 7. Algoritmo SRTF (Shortest Remaining Time First)
+
+### (b) Ventajas frente a otros algoritmos
+- **Respuesta Rápida para Jobs Cortos:** El algoritmo SRTF proporciona tiempos de respuesta muy rápidos para los procesos que son cortos en duración.
+- **Utilización Eficiente de la CPU:** Dado que siempre se está ejecutando el job que se puede completar más rápidamente, la CPU se utiliza de manera muy eficiente.
+- **Minimiza el Tiempo de Espera:** En general, el algoritmo SRTF tiende a minimizar el tiempo de espera para los procesos.
+
+
+### (b) Cálculo de TR y TE, TPR y TPE
+Para responder a esta pregunta, se necesita realizar cálculos basados en los diagramas de Gantt proporcionados y los tiempos de llegada y ejecución de cada job. Sin embargo, estos cálculos son específicos del conjunto de trabajos y tiempos proporcionados.
+
+### (c) Ventajas, Situaciones de Uso y Relevancia de Prioridades
+- **Ventajas:** El algoritmo de planificación por prioridades permite dar atención preferente a procesos críticos o importantes.
+- **Situaciones de Uso:** Es útil en sistemas en los que algunos procesos son más críticos que otros, como en sistemas de tiempo real o sistemas operativos de misión crítica.
+- **Relevancia de Prioridades:** En sistemas donde todos los procesos son igualmente importantes o en sistemas batch sin interacción del usuario, la implementación de prioridades podría no ser tan relevante.
