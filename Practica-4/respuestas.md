@@ -209,3 +209,26 @@ Para responder a esta pregunta, se necesita realizar cálculos basados en los di
 - **Ventajas:** El algoritmo de planificación por prioridades permite dar atención preferente a procesos críticos o importantes.
 - **Situaciones de Uso:** Es útil en sistemas en los que algunos procesos son más críticos que otros, como en sistemas de tiempo real o sistemas operativos de misión crítica.
 - **Relevancia de Prioridades:** En sistemas donde todos los procesos son igualmente importantes o en sistemas batch sin interacción del usuario, la implementación de prioridades podría no ser tan relevante.
+
+# 9. Inanición (Starvation)
+
+## (a) ¿Qué significa?
+
+La inanición en el contexto de los algoritmos de planificación se refiere a la situación en la que un proceso nunca recibe tiempo de CPU para ejecutarse debido a la competencia con otros procesos. Este fenómeno ocurre cuando un proceso es continuamente pasado por alto o pospuesto a favor de otros procesos, resultando en una espera indefinida.
+
+## (b) ¿Cuál/es de los algoritmos vistos puede provocarla?
+
+La inanición es más probable que ocurra en los algoritmos de planificación basados en prioridades y en Shortest Job First (SJF) o su variante apropiativa Shortest Remaining Time First (SRTF). 
+
+- **SJF y SRTF:** Un proceso largo puede sufrir inanición porque siempre se eligen procesos más cortos para ejecutarse primero.
+- **Planificación por Prioridades:** Un proceso con baja prioridad puede sufrir inanición si continuamente llegan procesos con prioridades más altas.
+
+## (c) ¿Existe alguna técnica que evite la inanición para el/los algoritmos mencionados en b?
+
+Sí, existen varias técnicas para evitar o mitigar la inanición:
+
+- **Envejecimiento (Aging):** Esta técnica incrementa gradualmente la prioridad de un proceso en espera, asegurando que eventualmente alcance una prioridad suficientemente alta para ser ejecutado.
+- **Feedback:** El sistema operativo puede ajustar dinámicamente las prioridades basándose en el comportamiento de los procesos y su tiempo de espera.
+- **Cuotas de Tiempo:** Asignar cuotas de tiempo asegura que todos los procesos reciban al menos una porción del tiempo de CPU.
+
+Implementando estas técnicas, los sistemas pueden asegurar que todos los procesos reciban atención y se reduzca el riesgo de inanición.
